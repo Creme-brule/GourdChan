@@ -23,3 +23,5 @@ yarn-error.log*
 
 # be sure to include yarn.lock for heroku.
 !yarn.lock
+package-lock.json
+
