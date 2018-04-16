@@ -1,7 +1,7 @@
 
 module.exports = function(sequelize, DataTypes) {
  
-    var Messages = sequelize.define('threads', {
+    var Messages = sequelize.define('message', {
  
         id: {
             autoIncrement: true,
@@ -20,11 +20,11 @@ module.exports = function(sequelize, DataTypes) {
 
     });
     Messages.associate = function(models) {
-        models.threads.belongsTo(models.users,{
+        models.message.belongsTo(models.user,{
             foreignKey: "senderId",
             as:"sender"
         });
-        models.threads.belongsTo(models.users,{
+        models.message.belongsTo(models.user,{
             foreignKey:"receiverID",
             as:"receiver"
         });

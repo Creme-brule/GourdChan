@@ -1,16 +1,16 @@
 
 module.exports = function(sequelize, DataTypes) {
  
-    var Boards = sequelize.define('boards', {
+    var Boards = sequelize.define('board', {
  
         id: {
             autoIncrement: true,
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            primaryKey:true
         },
  
         boardname: {
-            type: DataTypes.STRING,
-            primaryKey:true
+            type: DataTypes.STRING
         },
  
         board_status: {
