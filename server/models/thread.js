@@ -1,7 +1,7 @@
 
 module.exports = function(sequelize, DataTypes) {
  
-    var Threads = sequelize.define('threads', {
+    var Threads = sequelize.define('thread', {
  
         id: {
             autoIncrement: true,
@@ -20,16 +20,13 @@ module.exports = function(sequelize, DataTypes) {
         thread_status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
-        },
-        thread_createdat : {
-            type: DataTypes.DATE
         }
 
     });
     Threads.associate = function(models) {
-        models.threads.belongsTo(models.boards,{as:"board"});
-        models.threads.belongsTo(models.users,{as:"op"});
-        models.threads.belongsTo(models.images,{as:"picture"});
+        models.thread.belongsTo(models.board,{as:"board"});
+        models.thread.belongsTo(models.user,{as:"op"});
+        models.thread.belongsTo(models.image,{as:"picture"});
     }
     return Threads;
  
