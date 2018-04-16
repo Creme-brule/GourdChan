@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Messages = sequelize.define("threads", {
+  var Images = sequelize.define("image", {
     id: {
       autoIncrement: true,
       primaryKey: true,
@@ -9,5 +9,5 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }
   });
-  return Messages;
+  return Images;
 };

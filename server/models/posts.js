@@ -1,7 +1,7 @@
 
 module.exports = function(sequelize, DataTypes) {
  
-    var Posts = sequelize.define('posts', {
+    var Posts = sequelize.define('post', {
  
         id: {
             autoIncrement: true,
@@ -17,15 +17,12 @@ module.exports = function(sequelize, DataTypes) {
         post_status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
-        },
-        post_createdat : {
-            type: DataTypes.DATE
         }
     });
     Posts.associate = function(models) {
-        models.post_status.belongsTo(models.threads,{as:"thread"});
-        models.post_status.belongsTo(models.users,{as:"commentor"});
-        models.post_status.belongsTo(models.images,{as:"picture"});
+        models.post.belongsTo(models.thread,{as:"thread"});
+        models.post.belongsTo(models.user,{as:"commentor"});
+        models.post.belongsTo(models.image,{as:"picture"});
     }
     return Posts;
  
