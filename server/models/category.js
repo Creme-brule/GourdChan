@@ -1,7 +1,7 @@
 
 module.exports = function(sequelize, DataTypes) {
  
-    var Boards = sequelize.define('board', {
+    var Categorys = sequelize.define('category', {
  
         id: {
             autoIncrement: true,
@@ -9,19 +9,16 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey:true
         },
  
-        boardname: {
+        categoryname: {
             type: DataTypes.STRING
         },
  
-        board_status: {
+        category_status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
         }
  
     });
-    Boards.associate = function(models) {
-        models.board.belongsTo(models.category,{as:"category"});
-    }
-    return Boards;
+    return Categorys;
  
 }
