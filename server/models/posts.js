@@ -17,9 +17,6 @@ module.exports = function(sequelize, DataTypes) {
         post_status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
-        },
-        post_createdat : {
-            type: DataTypes.DATE
         }
     });
     Posts.associate = function(models) {

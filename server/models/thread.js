@@ -20,9 +20,6 @@ module.exports = function(sequelize, DataTypes) {
         thread_status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
-        },
-        thread_createdat : {
-            type: DataTypes.DATE
         }
 
     });

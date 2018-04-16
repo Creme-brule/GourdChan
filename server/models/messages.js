@@ -13,9 +13,6 @@ module.exports = function(sequelize, DataTypes) {
         },
         message_text: {
             type:DataTypes.STRING
-        },
-        message_createdat : {
-            type: DataTypes.DATE
         }
 
     });
