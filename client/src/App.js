@@ -10,24 +10,22 @@ import './App.css';
 
 class App extends Component {
   state = {
-    board: "home",
-    thread: ""
+    board: "gourdlife"
   }
 
-  handleBoardClick = (board) => {
-    this.setState({board});
-  }
+  componentDidMount() {
+    console.log("mounted" + this.props.board);
+  };
 
-  handleThreadClick = (thread) => {
-    this.setState({thread});
-  }
 
   render() {
     const board = this.state.board;
     return (
       <Router>
-        <SideBar boardClick={this.handleBoardClick} list={BoardList}/>
-        <Route path="/b/:boardname" render={() => <Board board={this.state.board}/>}/>
+        <div>
+          <SideBar list={BoardList}/>
+          <Route path="/b/:boardname" component={Board}/>
+        </div>
       </Router>
     );
   }

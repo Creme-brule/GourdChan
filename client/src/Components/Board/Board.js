@@ -1,13 +1,20 @@
 import React from 'react';
 
-const Board = props => {
-    
-    componentDidMount() {
-        console.log("mounted" + props.board);
+class Board extends React.Component {
+    state ={
+        threads: []
     }
-    render () {
+    componentDidMount() {
+        console.log("Boardmounted" + this.props.match.params.boardname);
+    };
+
+    handleThreadClick = (thread) => {
+        this.setState({thread});
+    }
+
+    render() {
         return (
-            <h1>{props.board}</h1>
+            <h1>{this.props.match.params.boardname}</h1>
         )
     }
 }
