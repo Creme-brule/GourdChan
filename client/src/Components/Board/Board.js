@@ -14,7 +14,9 @@ class Board extends React.Component {
 
     render() {
         return (
-            <h1>{this.props.match.params.boardname}</h1>
+            <div className="Board">
+                <h1>{this.props.match.params.boardname}</h1>
+            </div>
         )
     }
 }

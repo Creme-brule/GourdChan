@@ -10,7 +10,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    board: "gourdlife"
+    board: "gourdlife",
+    loggedIn: false
   }
 
   componentDidMount() {
