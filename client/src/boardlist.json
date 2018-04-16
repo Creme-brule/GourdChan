@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "name": "gourd",
+        "subs": [
+            {
+                "name": "gourdlife"
+            },
+            {
+                "name": "gourddeath"
+            },
+            {
+                "name": "gourdrebirth"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Entertainment",
+        "subs": [
+            {
+                "name": "videogames"
+            },
+            {
+                "name": "movies"
+            },
+            {
+                "name": "television"
+            },
+            {
+                "name": "books"
+            }
+        ]
+    }
+]
