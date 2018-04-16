@@ -1,10 +1,11 @@
 import routers from "./routes";
 import express from "express";
-import bodyParser from "body-parser";
+import bodyParser from "body-parser"; 
 import logger from "morgan";
 import session from "express-session";
-import passport from "passport";
+import passport from "passport";  
 import strategy from "../config/passport/passport.js"
+import auth from "./routes/auth.js"
 export default path => {
   // Create Instance of Express
   const app = express();
@@ -22,9 +23,11 @@ export default path => {
   app.use(express.static(`${path}/client`));
   app.use("/api/organization", routers.organization);
   //routes
-  //var authRoute = strategy(app, passport);
+  var authRoute = auth(app, passport);  
   //passport strategy
-  require("../config/passport/passport.js")(passport, models.user);
+  strategy(passport, models.user);
+  
+  
   // Any non API GET routes will be directed to our React App and handled by React Router
   app.get("*", (req, res) => {
     res.sendFile(`${path}/client/index.html`);
