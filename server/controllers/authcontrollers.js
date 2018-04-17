@@ -28,4 +28,4 @@ const authcontroller = {
   }
 
 };
-export default authcontroller;
+export {authcontroller as default};
