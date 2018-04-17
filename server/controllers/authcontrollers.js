@@ -17,7 +17,7 @@ const authcontroller = {
   },
 
   LoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {gi t
+    if (req.isAuthenticated()) {
       res.json("wooh");
     } else {
       res.json("bleh");
