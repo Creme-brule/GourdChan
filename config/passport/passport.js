@@ -1,12 +1,12 @@
-var bCrypt = require("bcrypt-nodejs");
+import bCrypt from "bcrypt-nodejs";
 
-module.exports =  function(passport, user) {
+export default function(passport, user) {
   var User = user;
 
   var LocalStrategy = require("passport-local").Strategy;
 
   //serialize
-  passport. serializeUser(function(user, done) {
+  passport.serializeUser(function(user, done) {
     done(null, user.id);
   });
 

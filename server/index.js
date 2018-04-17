@@ -6,10 +6,10 @@ import session from "express-session";
 import passport from "passport";  
 import strategy from "../config/passport/passport.js"
 import auth from "./routes/auth.js"
+import models from "./models"
 export default path => {
-  // Create Instance of Express
+  // Create Instance of Express  
   const app = express();
-  var models = require("./models");
   // Run Morgan for Logging
   app.use(logger("dev"));
   app.use(bodyParser.json());
@@ -24,6 +24,7 @@ export default path => {
   app.use("/api/organization", routers.organization);
   //routes
   var authRoute = auth(app, passport);  
+  //app.use("/auth",authRoute);
   //passport strategy
   strategy(passport, models.user);
   

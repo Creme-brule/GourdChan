@@ -1,23 +1,23 @@
-var exports = (module.exports = {});
+const authcontroller = {
+  signup(req, res) {
+    
+  },
 
-exports.signup = function(req, res) {
-  res.render("signup");
+  signin(req, res) {
+    
+  },
+
+  dashboard(req, res) {
+    res.json("YOURE IN", {
+      userName: req.user.username,
+      userId: req.user.id
+    });
+  },
+
+  logout(req, res) {
+    req.session.destroy(function(err) {
+      res.redirect("/");
+    });
+  }
 };
-
-exports.signin = function(req, res) {
-  res.render("signin");
-};
-
-exports.dashboard = function(req, res) {
-  res.render("dashboard",{
-    userName:req.user.username,
-    userId:req.user.id,
-
-  });
-};
-
-exports.logout = function(req, res) {
-  req.session.destroy(function(err) {
-    res.redirect("/");
-  });
-};
+export default authcontroller;

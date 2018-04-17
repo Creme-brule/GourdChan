@@ -1,9 +1,9 @@
-var authController = require("../controllers/authcontrollers.js");
+import authController from "../controllers/authcontrollers.js";
 
-module.exports = function(app, passport) {
-  app.get("/",isLoggedIn,authController.dashboard);
+export default function(app, passport) {
+  app.get("/");
   app.get("/signup", authController.signup);
-  app.get("/dashboard", isLoggedIn, authController.dashboard);
+  app.get("/dashboard", isLoggedIn);
   app.get("/signin", authController.signin);
   app.get("/logout", authController.logout);
 
@@ -26,7 +26,10 @@ module.exports = function(app, passport) {
   );
 
   function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) return next();
-    res.redirect("/signin");
+    if (req.isAuthenticated()) {
+      res.json("wooh");
+    } else {
+      res.json("bleh");
+    }
   }
-};
+}
