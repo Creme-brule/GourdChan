@@ -1,7 +1,6 @@
-
 module.exports = function(sequelize, DataTypes) {
  
-    var Categorys = sequelize.define('category', {
+    var Categories = sequelize.define('category', {
  
         id: {
             autoIncrement: true,
@@ -19,6 +18,9 @@ module.exports = function(sequelize, DataTypes) {
         }
  
     });
-    return Categorys;
+    Categories.associate = function(models) {
+        Categories.hasMany(models.board,{as:"subs"});
+    }
+    return Categories;
  
 }

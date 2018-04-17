@@ -30,7 +30,16 @@ const controller = {
       })
       .catch(err => res.status(422).json(err));
   },
-  create: function(req, res) {
+  createThread: function(req, res) {
+    db.thread.create({
+        thread_title: req.body.title,
+        thread_text: req.body.text,
+        
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  createPost: function(req, res) {
     db.Organization.create({
         name: req.body.name,
         description: req.body.description

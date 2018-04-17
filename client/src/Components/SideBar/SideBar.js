@@ -3,10 +3,10 @@ import SideBarList from '../SideBarList'
 
 const SideBar = props => (
     <div className="SideBar">
-        {props.list.map(catagory => (
-            <ul key={catagory.id}>
-                <li className="category">{catagory.name}</li>
-                <SideBarList click={props.boardClick} subs={catagory.subs}/>
+        {props.list.map(category => (
+            <ul key={category.id}>
+                <li className="category">{category.categoryname}</li>
+                <SideBarList click={props.boardClick} subs={category.subs}/>
             </ul>
         ))}
     </div>
