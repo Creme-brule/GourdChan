@@ -16,14 +16,14 @@ const authcontroller = {
     });
   },
 
-  LoggedIn = function(req, res, next) {
-    if (req.isAuthenticated()) {
+  LoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {gi t
       res.json("wooh");
     } else {
       res.json("bleh");
     }
   },
-  shooby = function(req,res,next) {
+  shooby(req,res,next) {
     res.json("doobap");
   }
 
