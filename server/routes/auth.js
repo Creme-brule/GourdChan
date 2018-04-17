@@ -11,6 +11,7 @@ router.get("/logout", authController.logout);
 
 router.post(
   "/signup",
+  console.log("qwertyu");
   passport.authenticate("local-signup", {
     successRedirect: "/dashboard",
 
