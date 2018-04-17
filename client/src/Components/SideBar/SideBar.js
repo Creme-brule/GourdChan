@@ -9,7 +9,7 @@ const SideBar = props => (
                 <SideBarList click={props.boardClick} subs={catagory.subs}/>
             </ul>
         ))} 
-         <form id="signup" name="signup" method="post" action="signup">
+         <form id="signup" name="signup" method="post" action="/auth/signup">
 
 <label for="username"></label>
 <input class="text" name="username" type="text" placeholder="Username" />
@@ -27,7 +27,7 @@ const SideBar = props => (
 <button class="waves-effect waves-light btn black" id="button2" type="submit" value="Sign Up">Create Account</button>
 </form>
             <br/>
-            <form id="signin" name="signin" method="post" action="signin">
+            <form id="signin" name="signin" method="post" action="/auth/signin">
 
 <label for="username"></label>
 <input class="text" name="username" type="text" placeholder="Username" />

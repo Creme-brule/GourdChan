@@ -8,16 +8,24 @@ const authcontroller = {
   },
 
   dashboard(req, res) {
-    res.json("YOURE IN", {
-      userName: req.user.username,
-      userId: req.user.id
-    });
   },
 
   logout(req, res) {
     req.session.destroy(function(err) {
       res.redirect("/");
     });
+  },
+
+  LoggedIn = function(req, res, next) {
+    if (req.isAuthenticated()) {
+      res.json("wooh");
+    } else {
+      res.json("bleh");
+    }
+  },
+  shooby = function(req,res,next) {
+    res.json("doobap");
   }
+
 };
 export default authcontroller;

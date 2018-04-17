@@ -22,8 +22,10 @@ export default path => {
 
   app.use(express.static(`${path}/client`));
   app.use("/api/organization", routers.organization);
+
   //routes
-  var authRoute = auth(app, passport);  
+  //var authRoute = auth(passport,app);  
+  app.use("/auth",routers.auth);
   //app.use("/auth",authRoute);
   //passport strategy
   strategy(passport, models.user);
