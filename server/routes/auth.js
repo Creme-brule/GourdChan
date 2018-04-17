@@ -11,12 +11,14 @@ router.get("/logout", authController.logout);
 
 router.post(
   "/signup",
+  function(){
   console.log("qwertyu");
   passport.authenticate("local-signup", {
     successRedirect: "/dashboard",
 
     failureRedirect: "/signup"
-  })
+  });
+}
 );
 
 router.post(
