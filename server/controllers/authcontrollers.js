@@ -25,7 +25,9 @@ const authcontroller = {
   },
   shooby(req,res,next) {
     res.json("doobap");
+  },
+  dooby(req,res,next) {
+    res.json("loowah");
   }
-
 };
 export {authcontroller as default};

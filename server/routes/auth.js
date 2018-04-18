@@ -1,33 +1,37 @@
 import express from "express";
 import authController from "../controllers/authcontrollers.js";
-import passport from "passport";
 const router = express.Router();
+export default function (passport) {
 
-router.get("/");
-router.get("/signup", authController.shooby);
-router.get("/dashboard", authController.LoggedIn);
-router.get("/signin", authController.shooby);
-router.get("/logout", authController.logout);
+  router.get("/",authController.dooby);
+  router.get("/signup", authController.shooby);
+  router.get("/dashboard", authController.LoggedIn);
+  router.get("/signin", authController.shooby);
+  router.get("/logout", authController.logout);
 
-router.post(
-  "/signup",
-  function(){
-  console.log("qwertyu");
-  passport.authenticate("local-signup", {
-    successRedirect: "/dashboard",
+  // router.post(
+  //   "/signup",
+  //   function () {
+  //     console.log('plew')
+  //     passport.authenticate("local-signup", {
+  //       successRedirect: "/dashboard",
 
-    failureRedirect: "/signup"
-  });
+  //       failureRedirect: "/signup"
+  //     });
+  //   }
+  // );
+
+  router.post('/signup', (req, res) => passport.authenticate('local-signup', { 
+    successRedirect: '/auth/dashboard', 
+    failureRedirect: '/auth/signup', })(req, res));
+
+  router.post(
+    "/signin",
+    passport.authenticate("local-signin", {
+      successRedirect: "/auth/dashboard",
+
+      failureRedirect: "/auth/signin"
+    })
+  );
+  return router;
 }
-);
-
-router.post(
-  "/signin",
-  passport.authenticate("local-signin", {
-    successRedirect: "/dashboard",
-
-    failureRedirect: "/signin"
-  })
-);
-
-export default router;
