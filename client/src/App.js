@@ -3,31 +3,38 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Board from './Components/Board';
 //import Posts from './Components/Posts';
 import SideBar from './Components/SideBar';
-import Splash from './Components/Splash';
-//import Threads from './Components/Threads';
+import Thread from './Components/Threads';
 import BoardList from './boardlist.json';
-import logo from './logo.svg';
+import organizationApi from './Data/organization-api';
 import './App.css';
 
 class App extends Component {
   state = {
-    board: "gourdlife",
-    loggedIn: false
+    BoardList: [],
+    loggedIn: false,
+    userId: ""
   }
 
   componentDidMount() {
-    console.log("mounted" + this.props.board);
+    organizationApi.getAll().then(results => {
+      console.log(results);
+      this.setState({
+        BoardList: results
+      })
+    });
   };
 
+  handlePost(location) {
+
+  }
 
   render() {
-    const board = this.state.board;
     return (
       <Router>
         <div>
-          <SideBar list={BoardList}/>
-          <Route exact path= "/" component={Splash}/>
-          <Route path="/b/:boardname" component={Board}/>
+          <SideBar list={this.state.BoardList}/>
+          <Route path="/b/:boardName" component={Board}/>
+          <Route path="t/:threadId" component={Thread}/>
         </div>
       </Router>
     );

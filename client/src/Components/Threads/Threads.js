@@ -1,13 +1,11 @@
 import React from 'react';
-import "./Board.css";
 
-
-class Board extends React.Component {
+class Thread extends React.Component {
     state ={
-        threads: []
+        posts: []
     }
     componentDidMount() {
-        console.log("Boardmounted" + this.props.match.params.boardName);
+        console.log("Boardmounted" + this.props.match.params.threadId);
     };
 
     handleThreadClick = (thread) => {
@@ -17,9 +15,9 @@ class Board extends React.Component {
     render() {
         return (
             <div className="Board">
-                <h1>{this.props.match.params.boardName}</h1>
+                <h1>{this.props.match.params.threadId}</h1>
             </div>
         )
     }
 }
-export default Board;
+export default Thread;

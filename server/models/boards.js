@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
  
     });
     Boards.associate = function(models) {
-        models.board.belongsTo(models.category,{as:"category"});
+        Boards.belongsTo(models.category,{as:"category"});
     }
     return Boards;
  
