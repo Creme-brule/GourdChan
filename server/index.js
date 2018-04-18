@@ -5,7 +5,6 @@ import logger from "morgan";
 import session from "express-session";
 import passport from "passport";  
 import strategy from "../config/passport/passport.js"
-import auth from "./routes/auth.js"
 import models from "./models"
 export default path => {
   // Create Instance of Express  
@@ -13,18 +12,21 @@ export default path => {
   // Run Morgan for Logging
   app.use(logger("dev"));
   app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  
+  app.use(express.static(`${path}/client`));
   //Passport Setup
   app.use(
-    session({ secret: "keyboard cat", resave: true, saveUninitialized: true,cookie:{httpOnly:true, secure: false} })
+    session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
   ); // session secret
   app.use(passport.initialize());
-  app.use(passport.session()); // persistent login sessions
+  app.use(passport.session()); // persistent login sessionsx  
+  strategy(passport, models.user);
 
-  app.use(express.static(`${path}/client`));
   app.use("/api/organization", routers.organization);
 
   //routes
-  strategy(passport, models.user);
+  
   //var authRoute = auth(passport,app)/;  
   app.use("/auth",routers.auth(passport));
   

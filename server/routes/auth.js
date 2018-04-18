@@ -23,7 +23,7 @@ export default function (passport) {
 
   router.post('/signup', (req, res) => passport.authenticate('local-signup', { 
     successRedirect: '/auth/dashboard', 
-    failureRedirect: '/auth/signup', })(req, res));
+    failureRedirect: '/auth/', })(req, res));
 
   router.post(
     "/signin",
