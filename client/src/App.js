@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Board from './Components/Board';
 //import Posts from './Components/Posts';
 import SideBar from './Components/SideBar';
+import Splash from './Components/Splash';
 //import Threads from './Components/Threads';
 import BoardList from './boardlist.json';
 import logo from './logo.svg';
@@ -25,6 +26,7 @@ class App extends Component {
       <Router>
         <div>
           <SideBar list={BoardList}/>
+          <Route exact path= "/" component={Splash}/>
           <Route path="/b/:boardname" component={Board}/>
         </div>
       </Router>

@@ -1,0 +1,25 @@
+body {
+    background-color: #EEEEEE;
+    color: #3C4858;
+    margin: ;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+
+.Board {
+    margin-left: 160px; 
+    font-size: 20px; 
+    padding: 0px 10px;
+    text-align: center;
+}
+
+
+
+@media (max-width: 991px) {
+    body,
+    html {
+        position: relative;
+        overflow-x: hidden;
+    }
+}

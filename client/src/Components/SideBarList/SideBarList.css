@@ -1,0 +1,8 @@
+.board {
+    margin-top: 5px;
+    margin-right: 20px;
+}
+
+.board :hover{
+    border-bottom:3px solid black;
+}
