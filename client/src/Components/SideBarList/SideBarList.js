@@ -5,7 +5,7 @@ import "./SideBarList.css";
 
 
 const SideBarList = props => (
-        props.subs.map(sub => <li className="board" key={sub.id}><Link to={"/b/"+sub.boardname} style={{ textDecoration: 'none', color: '#FFF' }}>{sub.boardname }</Link></li>)
+        props.subs.map(sub => <li className="board" key={sub.id}><Link to={"/b/"+sub.boardname} >{sub.boardname}</Link></li>)
 );
 
 

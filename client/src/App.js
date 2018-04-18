@@ -3,8 +3,8 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Board from './Components/Board';
 //import Posts from './Components/Posts';
 import SideBar from './Components/SideBar';
+import Splash from './Components/Splash';
 import Thread from './Components/Threads';
-import BoardList from './boardlist.json';
 import organizationApi from './Data/organization-api';
 import './App.css';
 
@@ -33,6 +33,7 @@ class App extends Component {
       <Router>
         <div>
           <SideBar list={this.state.BoardList}/>
+          <Route exact path="/" component={Splash}/>
           <Route path="/b/:boardName" component={Board}/>
           <Route path="t/:threadId" component={Thread}/>
         </div>
