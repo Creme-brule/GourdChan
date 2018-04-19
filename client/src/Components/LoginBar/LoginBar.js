@@ -44,7 +44,7 @@ class LoginBar extends Component {
                 `Choose a more secure password (8 characters minimum)`
             );
         } else {
-            createAccount();
+            this.createAccount();
         }
 
         this.setState({
