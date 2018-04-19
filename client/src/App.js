@@ -8,6 +8,8 @@ import SideBar from './Components/SideBar';
 //import Threads from './Components/Threads';
 import BoardList from './boardlist.json';
 import logo from './logo.svg';
+import Thread from './Components/Threads';
+import organizationApi from './Data/organization-api';
 import './App.css';
 import authApi from './Data/auth-api';
 
@@ -17,15 +19,22 @@ class App extends Component {
     loggedIn: false,
     userId: "",
     username: "",
-    password: ""
-  }
-
+    password: "",
+    BoardList: [],
+    location: "",
+    locationName: "",
+    locationId: "",
+  };
   showID = () => {
     console.log(this.state.userId);
   }
-
   componentDidMount() {
-    console.log("mounted" + this.props.board);
+    organizationApi.getAll().then(results => {
+      console.log(results);
+      this.setState({
+        BoardList: results
+      });
+    });
   };
 
   userLoggedIn = (userId) => {
@@ -102,8 +111,16 @@ class App extends Component {
     });
   };
 
+  locationClick = (loc, name, id) => {
+    console.log(loc, id);
+    this.setState({
+      location: loc,
+      locationName: name,
+      locationId: id
+    });
+  };
+
   render() {
-    const board = this.state.board;
     return (
       <Router>
         <div>
@@ -150,8 +167,9 @@ class App extends Component {
             />
             <button onClick={this.handleFormSubmit}>Submit</button>
           </form>
-          <SideBar list={BoardList} />
-          <Route path="/b/:boardname" component={Board} />
+          <SideBar list={this.state.BoardList} click={this.locationClick} />
+          <Route path="/b/:boardName" render={() => <Board boardName={this.state.locationName} location={this.state.location} locId={this.state.locationId} />} />
+          <Route path="/t/:threadId" component={Thread} />
         </div>
       </Router>
     );

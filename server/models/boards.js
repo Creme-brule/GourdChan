@@ -13,14 +13,15 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING
         },
  
-        board_status: {
+        status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
         }
  
     });
     Boards.associate = function(models) {
-        models.board.belongsTo(models.category,{as:"category"});
+        Boards.belongsTo(models.category,{as:"category"});
+        Boards.hasMany(models.post, {as:"thread"});
     }
     return Boards;
  

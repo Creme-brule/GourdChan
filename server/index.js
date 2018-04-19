@@ -36,8 +36,8 @@ export default path => {
   
   
   // Any non API GET routes will be directed to our React App and handled by React Router
-  app.get("/", (req, res) => {
-    console.log(`${path}`);
+  app.get("*", (req, res) => {
+    console.log(path);
     res.sendFile(`${path}/client/index.html`);
   });
 

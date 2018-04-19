@@ -8,19 +8,26 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        post_title: {
+        title: {
             type: DataTypes.STRING
         },
-        post_text: {
+        text: {
             type:DataTypes.STRING
         },
-        post_status: {
+        thread: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        threadId: {
+            type: DataTypes.INTEGER
+        },
+        status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
         }
     });
     Posts.associate = function(models) {
-        models.post.belongsTo(models.thread,{as:"thread"});
+        models.post.belongsTo(models.board,{as:"post"});
         models.post.belongsTo(models.user,{as:"commentor"});
         models.post.belongsTo(models.image,{as:"picture"});
     }
