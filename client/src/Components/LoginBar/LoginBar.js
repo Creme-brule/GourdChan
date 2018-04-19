@@ -1,12 +1,24 @@
 import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
-import organizationApi from '../../Data/auth-api';
+import authApi from '../../Data/auth-api';
+
+
 
 class LoginBar extends Component {
     // Setting the component's initial state
     state = {
         username: "",
         password: ""
+    };
+
+    createAccount = () => {
+        authApi.create({
+            username: this.state.username,
+            password: this.state.password
+        })
+            .then((data) => {
+                console.log("\n\npewpew"+data);
+            });
     };
 
     handleInputChange = event => {
@@ -32,15 +44,7 @@ class LoginBar extends Component {
                 `Choose a more secure password (8 characters minimum)`
             );
         } else {
-            addOrganization = () => {
-                organizationApi.create({
-                    username: this.state.username,
-                    password: this.state.password
-                })
-                    .then((data) => {
-                        console.log("\n\npewpew"+data);
-                    });
-            };
+            createAccount();
         }
 
         this.setState({
