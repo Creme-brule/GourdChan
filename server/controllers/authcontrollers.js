@@ -18,9 +18,9 @@ const authcontroller = {
 
   LoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-      res.json("wooh");
+      res.json(req.user.id);
     } else {
-      res.json("bleh");
+      res.json(null);
     }
   },
   shooby(req,res,next) {

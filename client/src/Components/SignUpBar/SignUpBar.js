@@ -2,22 +2,23 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import authApi from '../../Data/auth-api';
 
-
-
-class LoginBar extends Component {
+class SignUpBar extends Component {
     // Setting the component's initial state
     state = {
         username: "",
         password: ""
     };
 
-    loginAccount = () => {
-        authApi.loggin({
+    createAccount = () => {
+        authApi.create({
             username: this.state.username,
             password: this.state.password
         })
             .then((data) => {
-                console.log("\n\nbleee"+data);
+                if(data){
+                this.login(data);
+                console.log(data);
+                }
             });
     };
 
@@ -34,10 +35,16 @@ class LoginBar extends Component {
             [name]: value
         });
     };
-
+9
     handleFormSubmit = event => {
         event.preventDefault();
-            this.loginAccount();
+        if (this.state.password.length < 8) {
+            alert(
+                `Choose a more secure password (8 characters minimum)`
+            );
+        } else {
+            this.createAccount();
+        }
 
         this.setState({
             username: "",
@@ -50,7 +57,7 @@ class LoginBar extends Component {
         return (
             <div>
                 <p>
-                    Log In
+                    Sign Up
         </p>
                 <form className="form">
                     <input
@@ -74,4 +81,4 @@ class LoginBar extends Component {
     }
 }
 
-export default LoginBar;
+export default SignUpBar;
