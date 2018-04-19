@@ -6,9 +6,6 @@ import SideBar from './Components/SideBar';
 //import LoginBar from './Components/LoginBar';
 //import SignUpBar from './Components/SignUpBar';
 //import Threads from './Components/Threads';
-import BoardList from './boardlist.json';
-import logo from './logo.svg';
-import Thread from './Components/Threads';
 import organizationApi from './Data/organization-api';
 import './App.css';
 import authApi from './Data/auth-api';
@@ -24,10 +21,16 @@ class App extends Component {
     location: "",
     locationName: "",
     locationId: "",
+    signUp: false
   };
   showID = () => {
     console.log(this.state.userId);
   }
+
+  signUpInstead = () => {
+    this.setState({signUp: !this.state.signUp});
+  }
+
   componentDidMount() {
     organizationApi.getAll().then(results => {
       console.log(results);
@@ -81,9 +84,9 @@ class App extends Component {
 
   createFormSubmit = event => {
     event.preventDefault();
-    if (this.state.password.length < 8) {
+    if (this.state.password.length < 4) {
       alert(
-        `Choose a more secure password (8 characters minimum)`
+        `Choose a more secure password (4 characters minimum)`
       );
     } else {
       this.createAccount();
@@ -97,13 +100,9 @@ class App extends Component {
 
   loginFormSubmit = event => {
     event.preventDefault();
-    if (this.state.password.length < 8) {
-      alert(
-        `Choose a more secure password (8 characters minimum)`
-      );
-    } else {
-      this.loginAccount();
-    }
+
+    this.loginAccount();
+
 
     this.setState({
       username: "",
@@ -121,32 +120,32 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <Router>
-        <div>
-          <div>
-            <button id="sample" onClick={this.showID}>TEST</button>
-          </div>
-          <p>
-            Sign Up
+    const register = this.state.signUp;
+    const signBar = register ? (
+      <div>
+        <p>
+          Sign Up
           </p>
-          <form className="form">
-            <input
-              value={this.state.username}
-              name="username"
-              onChange={this.handleInputChange}
-              type="text"
-              placeholder="User Name"
-            />
-            <input
-              value={this.state.password}
-              name="password"
-              onChange={this.handleInputChange}
-              type="password"
-              placeholder="Password"
-            />
-            <button onClick={this.handleFormSubmit}>Submit</button>
-          </form>
+        <form className="form">
+          <input
+            value={this.state.username}
+            name="username"
+            onChange={this.handleInputChange}
+            type="text"
+            placeholder="User Name"
+          />
+          <input
+            value={this.state.password}
+            name="password"
+            onChange={this.handleInputChange}
+            type="password"
+            placeholder="Password"
+          />
+          <button onClick={this.createFormSubmit}>Submit</button>
+        </form>
+      </div>
+    ) : (
+        <div>
           <p>
             Log In
         </p>
@@ -165,11 +164,22 @@ class App extends Component {
               type="password"
               placeholder="Password"
             />
-            <button onClick={this.handleFormSubmit}>Submit</button>
+            <button onClick={this.loginFormSubmit}>Submit</button>
           </form>
+        </div>
+      );
+    return (
+      <Router>
+        <div>
+          {signBar}
+          <div>
+            <button id="reg" onClick={this.signUpInstead}>SIGN IN/UP</button>
+          </div>
+          <div>
+            <button id="sample" onClick={this.showID}>TEST</button>
+          </div>
           <SideBar list={this.state.BoardList} click={this.locationClick} />
           <Route path="/b/:boardName" render={() => <Board boardName={this.state.locationName} location={this.state.location} locId={this.state.locationId} />} />
-          <Route path="/t/:threadId" component={Thread} />
         </div>
       </Router>
     );
