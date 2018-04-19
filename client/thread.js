@@ -1,4 +1,4 @@
-
+/* 
 module.exports = function(sequelize, DataTypes) {
  
     var Threads = sequelize.define('thread', {
@@ -8,26 +8,26 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey: true,
             type: DataTypes.INTEGER
         },
-        thread_title: {
+        title: {
             type: DataTypes.STRING
         },
-        thread_text: {
+        text: {
             type:DataTypes.STRING
         },
-        thread_score: {
+        score: {
             type: DataTypes.INTEGER
         },
-        thread_status: {
+        status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
         }
 
     });
     Threads.associate = function(models) {
-        models.thread.belongsTo(models.board,{as:"board"});
+        models.thread.belongsTo(models.board,{as:"link"});
         models.thread.belongsTo(models.user,{as:"op"});
         models.thread.belongsTo(models.image,{as:"picture"});
     }
     return Threads;
  
-}
+} */

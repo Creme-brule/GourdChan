@@ -13,11 +13,14 @@ const controller = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    db.Organization.findOne({
+    const model = req.params.location;
+    console.log(model);
+    db[model].findOne({
         where: {
           id: req.params.id,
-          inactive: false
-        }
+          status: "active"
+        },
+        include:[{all: true}]
       })
       .then(dbModel => {
         if (dbModel) {
@@ -31,9 +34,12 @@ const controller = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    db.Organization.create({
-        name: req.body.name,
-        description: req.body.description
+    const model = req.body.location;
+    console.log(req.body);
+    db[model].create({
+        title: req.body.title,
+        text: req.body.text,
+        linkId: req.body.locationId
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
