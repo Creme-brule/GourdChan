@@ -60,7 +60,7 @@ class LoginBar extends Component {
         </p>
                 <form className="form">
                     <input
-                        value={this.state.firstName}
+                        value={this.state.username}
                         name="username"
                         onChange={this.handleInputChange}
                         type="text"
