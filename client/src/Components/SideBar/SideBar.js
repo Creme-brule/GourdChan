@@ -10,6 +10,8 @@ const SideBar = props => (
             </ul>
         ))}
     </div>
+    
 )
+
 
 export default SideBar;
