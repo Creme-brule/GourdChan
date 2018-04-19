@@ -5,7 +5,7 @@ class Thread extends React.Component {
         posts: []
     }
     componentDidMount() {
-        console.log("Boardmounted" + this.props.match.params.threadId);
+        console.log("Threadmounted" + this.props.match.params.threadId);
     };
 
     handleThreadClick = (thread) => {
@@ -14,7 +14,7 @@ class Thread extends React.Component {
 
     render() {
         return (
-            <div className="Board">
+            <div className="Thread">
                 <h1>{this.props.match.params.threadId}</h1>
             </div>
         )
