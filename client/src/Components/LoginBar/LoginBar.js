@@ -37,9 +37,7 @@ class LoginBar extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (!this.state.firstName || !this.state.lastName) {
-            alert("Fill out your first and last name please!");
-        } else if (this.state.password.length < 8) {
+        if (this.state.password.length < 8) {
             alert(
                 `Choose a more secure password (8 characters minimum)`
             );
