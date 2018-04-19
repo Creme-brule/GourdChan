@@ -32,6 +32,17 @@ class App extends Component {
     this.setState({ userId })
   }
 
+  loginAccount = () => {
+    authApi.loggin({
+      username: this.state.username,
+      password: this.state.password
+    })
+      .then((data) => {
+        this.userLoggedIn(data);
+        console.log("user id:" + data);
+      });
+  };
+
   createAccount = () => {
     authApi.create({
       username: this.state.username,
@@ -40,7 +51,7 @@ class App extends Component {
       .then((data) => {
         if (data) {
           this.userLoggedIn(data);
-          console.log(data);
+          console.log("user id:" + data);
         }
       });
   };
@@ -59,7 +70,7 @@ class App extends Component {
     });
   };
 
-  handleFormSubmit = event => {
+  createFormSubmit = event => {
     event.preventDefault();
     if (this.state.password.length < 8) {
       alert(
@@ -67,6 +78,22 @@ class App extends Component {
       );
     } else {
       this.createAccount();
+    }
+
+    this.setState({
+      username: "",
+      password: ""
+    });
+  };
+
+  loginFormSubmit = event => {
+    event.preventDefault();
+    if (this.state.password.length < 8) {
+      alert(
+        `Choose a more secure password (8 characters minimum)`
+      );
+    } else {
+      this.loginAccount();
     }
 
     this.setState({
@@ -86,6 +113,26 @@ class App extends Component {
           <p>
             Sign Up
           </p>
+          <form className="form">
+            <input
+              value={this.state.username}
+              name="username"
+              onChange={this.handleInputChange}
+              type="text"
+              placeholder="User Name"
+            />
+            <input
+              value={this.state.password}
+              name="password"
+              onChange={this.handleInputChange}
+              type="password"
+              placeholder="Password"
+            />
+            <button onClick={this.handleFormSubmit}>Submit</button>
+          </form>
+          <p>
+            Log In
+        </p>
           <form className="form">
             <input
               value={this.state.username}
