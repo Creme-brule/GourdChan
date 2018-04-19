@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Board from './Components/Board';
 //import Posts from './Components/Posts';
 import SideBar from './Components/SideBar';
+import LoginBar from './Components/LoginBar';
 //import Threads from './Components/Threads';
 import BoardList from './boardlist.json';
 import logo from './logo.svg';
@@ -24,6 +25,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <LoginBar/>
           <SideBar list={BoardList}/>
           <Route path="/b/:boardname" component={Board}/>
         </div>
