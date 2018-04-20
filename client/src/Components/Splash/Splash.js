@@ -1,20 +1,34 @@
-import React from "react";
+/*
+import React, {Component} from "react";
 import "./Splash.css";
+import SplashButtonOne from "./SplashButtonOne.js";
 
 
-const Splash = props => (
-  <div className="Splash">
-    
-    <a href="/b/" class="pure-button pure-button-primary" id="getStart">Get Started</a>
+class Splash extends Component {
+  constructor() {
+    super();
 
-  </div>
-);
+    this.state = {
 
+    };
+  }
 
+  render() {
+    return (
+      <div className="bodyDiv">
+        <div className="titleDiv">
+      
+          <p>Gourdchan</p>
+        </div>
+        <div className="buttonDiv">
+          <SplashButtonOne/>
+        </div>
+      </div>
 
+    )
+  }
+}
 
 export default Splash;
 
-
-
-
+*/
