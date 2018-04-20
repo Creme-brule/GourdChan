@@ -1,20 +1,21 @@
 body {
     background-color: #EEEEEE;
     color: #3C4858;
-   
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-weight: 300;
     line-height: 1.5em;
 }
 
 .Board {
-    margin-left: 160px; 
     font-size: 20px; 
-    padding: 0px 10px;
-    text-align: center;
 }
 
-
+h1 {
+   display: block;
+   text-align:center;
+   margin-left: 150px;
+   margin-top: -80px;
+}
 
 @media (max-width: 991px) {
     body,
