@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
     });
     Boards.associate = function(models) {
         Boards.belongsTo(models.category,{as:"category"});
-        Boards.hasMany(models.post, {as:"thread"});
+        Boards.hasMany(models.thread, {as:"thread"});
     }
     return Boards;
  
