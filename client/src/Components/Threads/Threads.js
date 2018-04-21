@@ -1,21 +1,69 @@
 import React from 'react';
+import Input from '../Input';
+import organizationApi from '../../Data/organization-api';
 
 class Thread extends React.Component {
     state ={
-        posts: []
+        posts: [],
+        title: "",
+        text: ""
     }
     componentDidMount() {
-        console.log("Threadmounted" + this.props.match.params.threadId);
+        console.log("Threadmounted " + this.props.match.params.threadId);
+        this.loadContent();
     };
 
-    handleThreadClick = (thread) => {
-        this.setState({thread});
-    }
+    loadContent = () => {
+        console.log(this.props.match.params.threadId);
+        organizationApi.getById(this.props.match.params.threadId, "thread").then((response) => {
+            console.log("call");
+            console.log(response.post);
+            this.setState({
+                posts: response.post
+            });
+        });
+    };
+
+    handlePostInput = event => {
+        event.preventDefault();
+        const body = {
+            model:"post",
+            title: this.state.title,
+            text: this.state.text,
+            boardId: null,
+            threadId: this.props.match.params.threadId,
+            op: this.props.userId
+        }
+        console.log("click" + JSON.stringify(body));
+        organizationApi.create(body).then(this.loadContent());
+    };
+
+    handleInputChange = event => {
+        let value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        });
+    };
 
     render() {
         return (
             <div className="Thread">
                 <h1>{this.props.match.params.threadId}</h1>
+                <Input board="thread" required={false} change={this.handleInputChange} submit={this.handlePostInput} />
+                {
+                    (this.state.posts) ?
+                    <div className="Posts">
+                    {this.state.posts.map(post => (
+                         <div key={post.id}>
+                            <p className="Title">{post.title}</p>
+                            <p className="Text">{post.text}</p>
+                        </div>
+                    ))}
+                    </div> :
+                    <h3>No Posts</h3>
+                }
+                
             </div>
         )
     }

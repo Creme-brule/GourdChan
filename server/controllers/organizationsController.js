@@ -13,9 +13,8 @@ const controller = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
-    const model = req.params.location;
-    console.log(model);
-    db[model].findOne({
+    console.log("model " + req.params.model);
+    db[req.params.model].findOne({
         where: {
           id: req.params.id,
           status: "active"
@@ -34,12 +33,13 @@ const controller = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    const model = req.body.location;
     console.log(req.body);
-    db[model].create({
+    db[req.body.model].create({
         title: req.body.title,
         text: req.body.text,
-        linkId: req.body.locationId
+        boardId: req.body.boardId,
+        threadId: req.body.threadId,
+        opId: req.body.op
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

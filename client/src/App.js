@@ -5,7 +5,7 @@ import Board from './Components/Board';
 import SideBar from './Components/SideBar';
 //import LoginBar from './Components/LoginBar';
 //import SignUpBar from './Components/SignUpBar';
-//import Threads from './Components/Threads';
+import Thread from './Components/Threads';
 import organizationApi from './Data/organization-api';
 import './App.css';
 import authApi from './Data/auth-api';
@@ -111,7 +111,7 @@ class App extends Component {
   };
 
   locationClick = (loc, name, id) => {
-    console.log(loc, id);
+    console.log(loc,name, id);
     this.setState({
       location: loc,
       locationName: name,
@@ -179,7 +179,8 @@ class App extends Component {
             <button id="sample" onClick={this.showID}>TEST</button>
           </div>
           <SideBar list={this.state.BoardList} click={this.locationClick} />
-          <Route path="/b/:boardName" render={() => <Board boardName={this.state.locationName} location={this.state.location} locId={this.state.locationId} />} />
+          <Route exact path="/b/:boardName" render={(props) => <Board location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
+          <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props}/>}/>
         </div>
       </Router>
     );
