@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Board from './Components/Board';
 //import Posts from './Components/Posts';
 import SideBar from './Components/SideBar';
+import ImageUpload from './Components/ImageUpload';
 //import LoginBar from './Components/LoginBar';
 //import SignUpBar from './Components/SignUpBar';
 //import Threads from './Components/Threads';
@@ -41,7 +42,8 @@ class App extends Component {
   };
 
   userLoggedIn = (userId) => {
-    this.setState({ userId })
+    this.setState({ userId,
+    loggedIn:true })
   }
 
   loginAccount = () => {
@@ -100,10 +102,7 @@ class App extends Component {
 
   loginFormSubmit = event => {
     event.preventDefault();
-
     this.loginAccount();
-
-
     this.setState({
       username: "",
       password: ""
@@ -121,6 +120,7 @@ class App extends Component {
 
   render() {
     const register = this.state.signUp;
+    
     const signBar = register ? (
       <div>
         <p>
@@ -168,10 +168,13 @@ class App extends Component {
           </form>
         </div>
       );
+      const loggedIn = this.state.loggedIn ? ( <div></div>) : ( signBar)
     return (
       <Router>
         <div>
-          {signBar}
+        <ImageUpload/>
+        
+          {loggedIn}
           <div>
             <button id="reg" onClick={this.signUpInstead}>SIGN IN/UP</button>
           </div>
