@@ -152,6 +152,7 @@ class App extends Component {
           <form className="form">
             <input
               value={this.state.username}
+              id="username"
               name="username"
               onChange={this.handleInputChange}
               type="text"
@@ -159,12 +160,13 @@ class App extends Component {
             />
             <input
               value={this.state.password}
+              id="password"
               name="password"
               onChange={this.handleInputChange}
               type="password"
               placeholder="Password"
             />
-            <button onClick={this.loginFormSubmit}>Submit</button>
+            <button id="submit" onClick={this.loginFormSubmit}>SUBMIT</button>
           </form>
         </div>
       );

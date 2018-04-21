@@ -10,11 +10,12 @@ const SideBar = props => (
         {props.list.map(category => (
             <ul key={category.id}>
                 <li className="category">{category.categoryname}</li>
-                <SideBarList click={props.click} subs={category.subs}/>
+                <SideBarList click={props.click} subs={category.subs} />
             </ul>
         ))}
+        <h3>Login</h3>
     </div>
-    
+
 )
 
 

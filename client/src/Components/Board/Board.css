@@ -1,6 +1,7 @@
 body {
     background-color: #EEEEEE;
     color: #3C4858;
+   
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-weight: 300;
     line-height: 1.5em;
@@ -13,8 +14,10 @@ body {
 h1 {
    display: block;
    text-align:center;
-   margin-left: 150px;
-   margin-top: -80px;
+   margin-left: 350px;
+   margin-top: -50px;
+   position: fixed;
+   font-size: 24px;
 }
 
 @media (max-width: 991px) {

@@ -53,7 +53,6 @@ class Board extends React.Component {
             <div className="Board">
                 <h1>{this.props.boardName}</h1>
                 <Input board={this.props.boardName} type="board" change={this.handleInputChange} submit={this.handlePostInput} />
-
             </div>
         )
     }
