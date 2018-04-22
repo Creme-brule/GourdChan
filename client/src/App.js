@@ -34,13 +34,23 @@ class App extends Component {
   componentDidMount() {
     organizationApi.getAll().then(results => {
       console.log(results);
+      const userId = sessionStorage.getItem("userId");
+      let loggedIn = sessionStorage.getItem("loggedIn");
+      if(!loggedIn) {
+        loggedIn = false;
+      }
+      console.log("get userId" + userId +"/" + loggedIn);
       this.setState({
+        loggedIn,
+        userId,
         BoardList: results
       });
     });
   };
 
   userLoggedIn = (userId) => {
+    sessionStorage.setItem("userId", userId);
+    sessionStorage.setItem("loggedIn", true);
     this.setState({
       userId,
       loggedIn: true

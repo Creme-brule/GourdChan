@@ -17,7 +17,6 @@ class Board extends React.Component {
     }
 
     loadContent = () => {
-        console.log(this.state.Id);
         organizationApi.getById(this.props.match.params.boardName, "board").then((response) => {
             console.log("call");
             console.log(response.thread);

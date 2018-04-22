@@ -27,7 +27,7 @@ const controller = {
             }
           ]
         },
-        include:[{all: true}]
+        include:[{all: true, include:[{all:true}]}]
       })
       .then(dbModel => {
         if (dbModel) {
