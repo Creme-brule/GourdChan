@@ -34,13 +34,23 @@ class App extends Component {
   componentDidMount() {
     organizationApi.getAll().then(results => {
       console.log(results);
+      const userId = sessionStorage.getItem("userId");
+      let loggedIn = sessionStorage.getItem("loggedIn");
+      if(!loggedIn) {
+        loggedIn = false;
+      }
+      console.log("get userId" + userId +"/" + loggedIn);
       this.setState({
+        loggedIn,
+        userId,
         BoardList: results
       });
     });
   };
 
   userLoggedIn = (userId) => {
+    sessionStorage.setItem("userId", userId);
+    sessionStorage.setItem("loggedIn", true);
     this.setState({
       userId,
       loggedIn: true
@@ -105,8 +115,8 @@ class App extends Component {
           <button id="reg" onClick={this.signUpInstead}>SIGN IN/UP</button>
           <button onClick={this.showID}> TEST ID </button>
           <SideBar list={this.state.BoardList} click={this.locationClick} />
-          <Route exact path="/b/:boardName" render={(props) => <Board location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props} />} />
-          <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props} />} />
+          <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
+          <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props}/>}/>
         </div>
       </Router>
     );
