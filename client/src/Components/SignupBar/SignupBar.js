@@ -1,4 +1,5 @@
 import React from 'react';
+import "./SignupBar.css"
 
 class SignupBar extends React.Component {
 
@@ -32,14 +33,12 @@ class SignupBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <p>
-                    Sign Up
-                </p>
-                
+            <div class="userBox">
+               
                     <input
                         value={this.state.username}
                         name="username"
+                        id="username"
                         onChange={this.handleInputChange}
                         type="text"
                         placeholder="User Name"
@@ -47,6 +46,7 @@ class SignupBar extends React.Component {
                     <input
                         value={this.state.password}
                         name="password"
+                        id="password"
                         onChange={this.handleInputChange}
                         type="password"
                         placeholder="Password"
