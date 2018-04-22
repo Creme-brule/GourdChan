@@ -52,6 +52,7 @@ class Board extends React.Component {
 
     render() {
         return (
+        <div className="wrapper">
             <div className="Board">
                 <h1>{this.props.match.params.boardName}</h1>
                 <Input board={this.props.match.params.boardName} required={true} change={this.handleInputChange} submit={this.handlePostInput} />
@@ -68,6 +69,7 @@ class Board extends React.Component {
                     <h3>No threads</h3>
                 }
             </div>
+        </div>
         )
     }
 }

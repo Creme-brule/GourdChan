@@ -6,6 +6,11 @@ body {
     line-height: 1.5em;
 }
 
+.wrapper {
+    margin-left:auto;
+    margin-right:auto;
+}
+
 .Board {
     font-size: 20px; 
     
@@ -57,4 +62,5 @@ h1 {
     font-style: italic;
     font-size: 16px;
 }
+
 
