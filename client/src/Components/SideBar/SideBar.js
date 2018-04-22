@@ -13,7 +13,6 @@ const SideBar = props => (
                 <SideBarList click={props.click} subs={category.subs} />
             </ul>
         ))}
-        <h3>Login</h3>
     </div>
 
 )

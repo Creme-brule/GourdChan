@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../Input';
 import organizationApi from '../../Data/organization-api';
+import "./Threads.css";
 
 class Thread extends React.Component {
     state ={

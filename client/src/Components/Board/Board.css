@@ -1,7 +1,6 @@
 body {
     background-color: #EEEEEE;
     color: #3C4858;
-   
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-weight: 300;
     line-height: 1.5em;
@@ -9,14 +8,53 @@ body {
 
 .Board {
     font-size: 20px; 
+
 }
 
 h1 {
    display: block;
-   text-align:center;
-   margin-left: 350px;
-   margin-top: -50px;
-   position: fixed;
+   text-align: center;
    font-size: 24px;
+}
+
+:root {
+    --link-color: blue;
+    --hover-color: red;
+    --underline-color: var(--link-color);
+}
+
+.Threads a:hover {
+    color: var(--hover-color);
+    border-bottom-color: var(--hover-color);
+}
+
+.Threads a.selected, a.selected:link, a.selected:active {
+    border-bottom: 3px solid red;
+
+}
+
+.Threads{
+    display: block;
+    z-index: 50;
+    margin-left: 300px;
+    color: #3C4858;
+    text-decoration: none;  
+    color: black;
+}
+
+.Threads a{
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+.Title {
+    font-weight: bold;
+}
+
+.Text {
+    margin-top: -15px;
+    font-style: italic;
+    font-size: 16px;
 }
 

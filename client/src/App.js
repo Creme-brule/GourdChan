@@ -123,9 +123,7 @@ class App extends Component {
     const register = this.state.signUp;
     const signBar = register ? (
       <div>
-        <p>
-          Sign Up
-          </p>
+       
         <form className="form">
           <input
             value={this.state.username}
@@ -146,9 +144,7 @@ class App extends Component {
       </div>
     ) : (
         <div>
-          <p>
-            Log In
-        </p>
+          
           <form className="form">
             <input
               value={this.state.username}
@@ -175,11 +171,9 @@ class App extends Component {
         <div>
           {signBar}
           <div>
-            <button id="reg" onClick={this.signUpInstead}>SIGN IN/UP</button>
+            <button id="reg" onClick={this.signUpInstead}>SIGN IN</button>
           </div>
-          <div>
-            <button id="sample" onClick={this.showID}>TEST</button>
-          </div>
+         
           <SideBar list={this.state.BoardList} click={this.locationClick} />
           <Route exact path="/b/:boardName" render={(props) => <Board location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
           <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props}/>}/>
