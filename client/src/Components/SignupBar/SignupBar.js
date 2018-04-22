@@ -1,15 +1,23 @@
 import React from 'react';
 
-class LoginBar extends React.Component {
+class SignupBar extends React.Component {
 
     state = {
         username: "",
         password: ""
-    }   
+    }
 
-    loginFormSubmit = (event) => {
+    //how come can't pass handleInputChange down from App.js
+
+    createFormSubmit = (event) => {
         event.preventDefault();
-        this.props.login(this.state.username, this.state.password);
+        if (this.state.password.length < 4) {
+          alert(
+            `Choose a more secure password (4 characters minimum)`
+          );
+        } else {
+          this.props.signup(this.state.username, this.state.password);
+        }
       };
 
     handleInputChange = event => {
@@ -26,7 +34,7 @@ class LoginBar extends React.Component {
         return (
             <div>
                 <p>
-                    Log In
+                    Sign Up
                 </p>
                 
                     <input
@@ -35,7 +43,7 @@ class LoginBar extends React.Component {
                         onChange={this.handleInputChange}
                         type="text"
                         placeholder="User Name"
-                    /> 
+                    />
                     <input
                         value={this.state.password}
                         name="password"
@@ -43,7 +51,8 @@ class LoginBar extends React.Component {
                         type="password"
                         placeholder="Password"
                     />
-                    <button onClick={this.loginFormSubmit}>Submit</button>
+                    <button onClick={this.createFormSubmit}>Submit</button>
+                    {/* <button onClick={this.props.signup(this.state.username,this.state.password)}>Submit</button> */}
                 
             </div>
         )
@@ -51,4 +60,4 @@ class LoginBar extends React.Component {
 }
 
 
-export default LoginBar;
+export default SignupBar;
