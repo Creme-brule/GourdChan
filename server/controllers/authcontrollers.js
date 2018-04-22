@@ -24,7 +24,7 @@ const authcontroller = {
     }
   },
   shooby(req,res,next) {
-    res.json("doobap");
+    res.json("Failed to log in.");
   },
   dooby(req,res,next) {
     res.json("loowah");
