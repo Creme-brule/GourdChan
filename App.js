@@ -2,7 +2,7 @@ var PORT = process.env.PORT || 3001; // Sets an initial port. We'll use this lat
 // ensure environment variables are loaded
 import boardList from './database/boardlist.json';
 import App from './server'
-
+import AWS from "aws-sdk";
 // Requiring our models for syncing
 import db from './server/models';
 
@@ -23,6 +23,7 @@ db.sequelize.sync().then(function() {
             categoryname: boardcat.name
         }
     }).then(() => {
+        
         boardcat.subs.forEach(sub => {
             db.board.findOrCreate({
                 where: {
