@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Board from './Components/Board';
 //import Posts from './Components/Posts';
 import SideBar from './Components/SideBar';

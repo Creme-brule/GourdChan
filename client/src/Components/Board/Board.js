@@ -2,6 +2,7 @@ import React from 'react';
 import Input from '../Input';
 import {Link} from 'react-router-dom';
 import organizationApi from '../../Data/organization-api';
+import "./Board.css";
 
 class Board extends React.Component {
     state = {

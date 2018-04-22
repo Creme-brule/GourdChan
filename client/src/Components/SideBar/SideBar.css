@@ -1,0 +1,34 @@
+.SideBar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: lightgrey;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.category {
+    margin-top: 25px;
+    font-size: large;
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    display: block;
+    margin-left: 39px;
+    margin-top: 2px;
+}
+
+h3 {
+    display: block;
+    margin-left: 39px;
+    margin-top: 20px;
+    font-size: 18px;
+}
