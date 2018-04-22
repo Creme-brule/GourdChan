@@ -10,7 +10,7 @@ import Thread from './Components/Threads';
 import organizationApi from './Data/organization-api';
 import './App.css';
 import authApi from './Data/auth-api';
-
+  
 class App extends Component {
   state = {
     board: "gourdlife",
@@ -48,7 +48,6 @@ class App extends Component {
   }
 
   loginAccount = (username, password) => {
-
     authApi.loggin({
       username,
       password
@@ -85,8 +84,6 @@ class App extends Component {
       [name]: value
     });
   };
-
-
 
   locationClick = (loc, name, id) => {
     console.log(loc, name, id);

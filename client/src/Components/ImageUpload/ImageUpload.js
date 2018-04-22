@@ -16,7 +16,7 @@ class ImageUpload extends React.Component {
             image: this.state.image,
           }) 
             .then((data) => {
-              console.log("chickens");
+              return console.log("chickens");
             });
     }
 
