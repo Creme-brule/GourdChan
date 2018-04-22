@@ -29,23 +29,22 @@ export default function(passport, user) {
         passReqToCallback: true // allows us to pass back the entire request to the callback
       },
       function(req, hotdog, password, done) {
-        console.log("\n\n\nshoowahh");
+        
         var generateHash = function(password) {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
-        console.log("\n\n\nshoowee");
+        
         User.findOne({
           where: {
             username: hotdog
           }
         }).then(function(user) {
-          console.log("\n\n\ntootee");
+          
           if (user) {
             return done(null, false, {
               message: "That username is already taken"
             });
           } else {
-            console.log("\n\n\ntree")
             var userPassword = generateHash(password);
 
             var data = {
@@ -57,7 +56,6 @@ export default function(passport, user) {
 
               lastname: req.body.lastname
             };
-            console.log("\n\n\nBLEH");
             User.create(data).then(function(newUser, created) {
               if (!newUser) {
                 return done(null, false);
