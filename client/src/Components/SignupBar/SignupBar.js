@@ -33,7 +33,7 @@ class SignupBar extends React.Component {
 
     render() {
         return (
-            <div class="userBox">
+            <div className="userBox">
                
                     <input
                         value={this.state.username}
