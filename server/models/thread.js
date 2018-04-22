@@ -20,8 +20,8 @@ module.exports = function(sequelize, DataTypes) {
         status: {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
-        }
-
+        },
+        boardname: DataTypes.STRING
     });
     Threads.associate = function(models) {
         models.thread.hasMany(models.post, {as:"post"})
