@@ -105,7 +105,7 @@ class App extends Component {
   };
 
   render() {
-    const signBar = this.state.signUp ? (<LoginBar login={this.loginAccount} />) : (<SignupBar signup={this.createAccount} />);
+    const signBar = this.state.signUp ? (<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} />) : (<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} />);
     const loggedIn = this.state.loggedIn ? (<div></div>) : (signBar)
     return (
       <Router>
