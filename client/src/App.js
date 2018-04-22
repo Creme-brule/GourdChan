@@ -179,7 +179,7 @@ class App extends Component {
             <button id="sample" onClick={this.showID}>TEST</button>
           </div>
           <SideBar list={this.state.BoardList} click={this.locationClick} />
-          <Route exact path="/b/:boardName" render={(props) => <Board location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
+          <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
           <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props}/>}/>
         </div>
       </Router>
