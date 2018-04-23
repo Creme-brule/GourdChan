@@ -18,7 +18,11 @@ const authcontroller = {
 
   LoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-      res.json(req.user.id);
+      const response = {
+        id: req.user.id,
+        name: req.user.username
+      }
+      res.json(response);
     } else {
       res.json(null);
     }
