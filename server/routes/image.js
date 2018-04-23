@@ -18,23 +18,8 @@ const router = express.Router();
 // });
 
 router.post("/upload/url", (req, res) => {
-  // var s3 = new AWS.S3({
-  //   apiVersion: '2006-03-01',
-  //   params: {
-  //     Bucket: albumBucketName,
-  //     Key: req.body.filename,
-  //     Expires: 60,
-  //     ContentType: req.body.filetype
-  //   }}); 
-  console.log(config);
-  console.log(config.default.awsaccess);  
-  var s3 = new AWS  .S3();
-  console.log("req.body");
-  console.log(req.body);
-  console.log("req.body.filename");
-  console.log(req.body.filename);
-  
-  var params = {  
+  const s3 = new AWS  .S3();
+  const params = {  
     Bucket: albumBucketName,
     Key: req.body.filename,
     Expires: 60,
