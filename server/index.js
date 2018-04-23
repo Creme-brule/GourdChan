@@ -19,7 +19,7 @@ export default path => {
   app.use(express.static(`${path}/client`));
   //Passport Setup
   app.use(
-    session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+    session({ secret: "keyboard cat", resave: true, saveUninitialized: true ,unset:"destroy"})
   ); // session secret
   app.use(passport.initialize());
   app.use(passport.session()); // persistent login sessionsx  

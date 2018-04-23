@@ -33,8 +33,10 @@ class SignupBar extends React.Component {
 
     render() {
         return (
-        <p id="signup">Sign In
+            <div id="signup">Sign In
+            
             <div className="signBox">
+            
                     <input
                         value={this.state.username}
                         name="username"
@@ -56,7 +58,7 @@ class SignupBar extends React.Component {
                     {/* <button onClick={this.props.signup(this.state.username,this.state.password)}>Submit</button> */}
                 
             </div>
-            </p>
+            </div>
         )
     }
 }
