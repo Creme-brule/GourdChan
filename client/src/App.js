@@ -25,7 +25,8 @@ class App extends Component {
   };
 
   signUpInstead = () => {
-    this.setState({ signUp: !this.state.signUp });
+    this.setState({ signUp: !this.state.signUp,
+    authError:"" });
   }
 
   showID = () => {
@@ -80,16 +81,13 @@ class App extends Component {
       password
     })
       .then((data) => {
-        console.log("login response");
-        console.log(data);
         if(data=="Invalid login credentials"){
           this.setState({authError:data});
-          
         }
         if (typeof data.id === "number") {
           this.userLoggedIn(data);
-          console.log("login");
           console.log(data);
+          this.setState({authError:""});
         }
       });
   };
@@ -100,21 +98,18 @@ class App extends Component {
       password
     })
       .then((data) => {
-        console.log("create response");
-        console.log(data);
         if(data=="Username Taken"){
           this.setState({authError:data});
         }
         if (typeof data.id === "number") {
           this.userLoggedIn(data);
-          console.log("create");
           console.log(data);
+          this.setState({authError:""});
         }
       });
   };
 
   locationClick = (loc, name, id) => {
-    console.log(loc, name, id);
     this.setState({
       location: loc,
       locationName: name,
