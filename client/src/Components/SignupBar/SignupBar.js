@@ -33,8 +33,8 @@ class SignupBar extends React.Component {
 
     render() {
         return (
-            <div className="userBox">
-                    <p>Sign Up</p>
+        <p id="signup">Sign In
+            <div className="signBox">
                     <input
                         value={this.state.username}
                         name="username"
@@ -51,11 +51,12 @@ class SignupBar extends React.Component {
                         type="password"
                         placeholder="Password"
                     />
-                    <button onClick={this.createFormSubmit}>Submit</button>
-                    <button onClick={this.props.swap}>LOG IN</button>
+                    <button id="loginBtn" onClick={this.createFormSubmit}>Submit</button>
+                    <button id="signBtn" onClick={this.props.swap}>Sign in</button>
                     {/* <button onClick={this.props.signup(this.state.username,this.state.password)}>Submit</button> */}
                 
             </div>
+            </p>
         )
     }
 }
