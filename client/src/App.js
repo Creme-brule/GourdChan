@@ -63,8 +63,11 @@ class App extends Component {
       password
     })
       .then((data) => {
-        this.userLoggedIn(data);
-        console.log("user id:" + data);
+        console.log(typeof data);
+        if (typeof data === "number") {
+          this.userLoggedIn(data);
+          console.log("user id:" + data);
+        }
       });
   };
 
@@ -74,7 +77,7 @@ class App extends Component {
       password
     })
       .then((data) => {
-        if (data) {
+        if (typeof data === "number") {
           this.userLoggedIn(data);
           console.log("user id:" + data);
         }

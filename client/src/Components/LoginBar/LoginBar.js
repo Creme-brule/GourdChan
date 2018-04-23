@@ -24,7 +24,7 @@ class LoginBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="userBox">
                 <p>Log In</p>
                 
                     <input
