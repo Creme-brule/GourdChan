@@ -10,7 +10,7 @@ import Thread from './Components/Threads';
 import organizationApi from './Data/organization-api';
 import './App.css';
 import authApi from './Data/auth-api';
-  
+
 class App extends Component {
   state = {
     board: "gourdlife",
@@ -108,7 +108,7 @@ class App extends Component {
     const signBar = this.state.signUp ? (<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} />) : (<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} />);
     const loggedIn = this.state.loggedIn ? (<div></div>) : (signBar)
     return (
-      <Router>
+      <Router>  
         <div>
           <ImageUpload />
           {loggedIn}

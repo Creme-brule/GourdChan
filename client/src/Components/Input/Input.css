@@ -15,7 +15,7 @@
 
 .textbox {
     position: absolute;
-    top: 30px;
+    top: 35px;
     width: 500px;
     height: 200px;
     resize: none;
@@ -31,8 +31,8 @@
     text-align: center;
     font-size: 16px;
     cursor: pointer;
-    top: 240px;
-    left: -3px;
+    top: 280px;
+    left: -1px;
     height: 40px;
     position: absolute;
 }

@@ -2,6 +2,21 @@
     margin: 10px;
     display: block;
     width: 500px;
-    left: 200px;
+    left: 430px;
+    top: 389px;
     position: absolute;
+}
+
+#upload {
+    display: block;
+    width: 70px;
+    position: absolute;
+    top: 0;
+    left: 180px;
+}
+
+#imageUpload {
+    display: block;
+    width: 300px;
+    
 }

@@ -1,16 +1,25 @@
 import axios from "axios";
+
 const imageApi = {
-  upload: org => {
-    const fd = new FormData();
-    fd.append("upload file", org.image);
-    console.log("\n\n\nfd: " + fd);
-    console.log("\n\n\norg.iamge " + org.image);
-    let result;
-    axios.post('/api/image/upload', fd).then(results => {
-      result = results.data
-    });
-    return result;
-  },
+  upload: (url,file, options) => axios.put(url, file, options)
+    .then(result => result).catch(err => {
+      console.log(err);
+      return err;
+    })
+  ,
+  geturl: org => axios.post('/api/image/upload/url', {
+    filename: org.image.name,
+    filetype: org.image.type
+  }).then(result => {
+    const signedUrl = result.data;
+    console.log("\n\nimage-api_geturl:");
+    console.log(result);
+    const data = {
+      url: signedUrl,
+      type: org.image.type
+    }
+    return data;
+  }),
   download: org => axios.get('/api/image/:id', org).then(results => results.data),
 };
 export {

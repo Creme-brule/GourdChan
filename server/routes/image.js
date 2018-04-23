@@ -1,52 +1,38 @@
 import express from "express";
 import imageController from "../controllers/imageControllers.js";
 import AWS from "aws-sdk";
-var albumBucketName = 'applegourd';
-var bucketRegion = 'us-east-1';
-var IdentityPoolId = 'us-east-1:140aaf87-9224-4c7f-8840-a260532ca084';
-
+import fs from "fs";
+import path from "path";
+const config    = require(__dirname + '/../../config/amazon.js');
+const albumBucketName = 'applegourd';
 AWS.config.update({
-  region: bucketRegion,
-  credentials: new AWS.CognitoIdentityCredentials({
-    IdentityPoolId: IdentityPoolId
-  })
-}); 
-
-var s3 = new AWS.S3({
-  apiVersion: '2006-03-01',
-  params: {Bucket: albumBucketName}
+  accessKeyId: config.default.awsaccess,
+  secretAccessKey: config.default.awssecret,
 });
 
-function addPhoto(item) {
-  var files = item;
-  console.log("\n\n\nfiles"+ files);
-  var fileName = files.name;
-  console.log("\n\n\nfileName "+files.name)
-  var albumPhotosKey = encodeURIComponent("images") + '//';
-  var photoKey = albumPhotosKey + fileName;
-  s3.putObject({
-    Key: photoKey,
-    Body: files,
-    ACL: 'public-read'
-  }, function(err, data) {
-    if (err) {
-      return console.log('There was an error uploading your photo: ', err.message);
-    }
-    console.log('Successfully uploaded photo.');
-    viewAlbum(folder);
-  });
-}
 
 const router = express.Router();
+// router.post('/upload', (req, res) => {
+//   console.log(req.body);
+//   addPhoto(req.body);
+// });
 
-
-
-  router.post('/upload', (req, res) =>  {
-    addPhoto(req.body); 
+router.post("/upload/url", (req, res) => {
+  const s3 = new AWS  .S3();
+  const params = {  
+    Bucket: albumBucketName,
+    Key: req.body.filename,
+    Expires: 60,
+    ContentType: req.body.filetype
+  };  
+  let url =  s3.getSignedUrl('putObject',params)
+  console.log("right before "+url); 
+    res.send(url);
   });
+
   router.get("/:id", imageController.shooby);
 
-  
 
-  export default router;
+
+export default router;
 
