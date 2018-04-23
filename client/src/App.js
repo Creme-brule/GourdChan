@@ -35,8 +35,8 @@ class App extends Component {
     authApi.logout().then(result => result);
     this.setState({
       loggedIn: false,
-      username:"",
-      userId:""
+      username: "",
+      userId: ""
     })
     sessionStorage.removeItem('userId');
     sessionStorage.removeItem('username');
@@ -128,16 +128,13 @@ class App extends Component {
 
   render() {
     const signBar = this.state.signUp ? (<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} />) : (<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} />);
-    const loggedIn = this.state.loggedIn ? (<div className="userBox">Logged in as: {this.state.username}</div>) : (signBar)
+    const loggedIn = this.state.loggedIn ? (<div className="userBox"><p>Logged in as: {this.state.username} </p>
+      <button onClick={this.logout}>LOGOUT</button>
+    </div>) : (signBar)
     return (
       <Router>
         <div>
           <br />
-          <div>
-            <br />
-            <button onClick={this.logout}>LOGOUT</button>
-            <br />
-          </div>
           <ImageUpload />
           {loggedIn}
           <SideBar list={this.state.BoardList} click={this.locationClick} />
