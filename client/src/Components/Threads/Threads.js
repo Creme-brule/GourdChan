@@ -1,10 +1,12 @@
 import React from 'react';
 import Input from '../Input';
 import organizationApi from '../../Data/organization-api';
+import "./Threads.css";
 
 class Thread extends React.Component {
     state ={
         posts: [],
+        parent: null,
         title: "",
         text: ""
     }
@@ -17,8 +19,9 @@ class Thread extends React.Component {
         console.log(this.props.match.params.threadId);
         organizationApi.getById(this.props.match.params.threadId, "thread").then((response) => {
             console.log("call");
-            console.log(response.post);
+            console.log(response);
             this.setState({
+                parent: response,
                 posts: response.post
             });
         });
@@ -51,6 +54,14 @@ class Thread extends React.Component {
             <div className="Thread">
                 <h1>{this.props.match.params.threadId}</h1>
                 <Input board="thread" required={false} change={this.handleInputChange} submit={this.handlePostInput} />
+                {
+                    (this.state.parent) ?
+                    <div className="Parent">
+                            <p className="Title">{this.state.parent.title}</p>
+                            <p className="Text">{this.state.parent.text}</p>
+                    </div> :
+                    <h3>Post does not exist</h3>
+                }
                 {
                     (this.state.posts) ?
                     <div className="Posts">

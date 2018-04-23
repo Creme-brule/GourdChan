@@ -2,9 +2,11 @@ import React from 'react';
 import Input from '../Input';
 import {Link} from 'react-router-dom';
 import organizationApi from '../../Data/organization-api';
+import "./Board.css";
 
 class Board extends React.Component {
     state = {
+        Id:null,
         threads: [],
         title: "",
         text: ""
@@ -13,14 +15,14 @@ class Board extends React.Component {
         console.log("Boardmounted" + this.props.match.params.boardName);
         console.log(this.props);
         this.loadContent();
-    };
+    }
 
     loadContent = () => {
-        console.log(this.props.locId);
-        organizationApi.getById(this.props.locId, "board").then((response) => {
+        organizationApi.getById(this.props.match.params.boardName, "board").then((response) => {
             console.log("call");
             console.log(response.thread);
             this.setState({
+                Id: response.id,
                 threads: response.thread
             });
         });
@@ -32,7 +34,7 @@ class Board extends React.Component {
             model: "thread",
             title: this.state.title,
             text: this.state.text,
-            boardId: this.props.locId,
+            boardId: this.state.Id,
             threadId: null,
             op: this.props.userId
         }

@@ -1,4 +1,5 @@
 const db = require("../models");
+const op = db.Sequelize.Op;
 
 // Defining methods for the booksController
 const controller = {
@@ -16,10 +17,17 @@ const controller = {
     console.log("model " + req.params.model);
     db[req.params.model].findOne({
         where: {
-          id: req.params.id,
-          status: "active"
+          [op.or]: [
+            {
+              id: req.params.id,
+              status: "active"
+            },{
+              boardname: req.params.id,
+              status: "active"
+            }
+          ]
         },
-        include:[{all: true}]
+        include:[{all: true, include:[{all:true}]}]
       })
       .then(dbModel => {
         if (dbModel) {
