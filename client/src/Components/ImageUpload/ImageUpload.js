@@ -8,21 +8,22 @@ class ImageUpload extends React.Component {
     }
     showImage = () => {
         console.log(this.state.image);
+        console.log(this.state.image.name);
     }
     upload = (event) => {
         event.preventDefault();
         console.log(this.state.image);
         imageApi.upload({
             image: this.state.image,
-          }) 
-            .then((data) => {
-              return console.log("chickens");
-            });
+            imageName: this.state.image.name
+          });
     }
 
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
         let value = event.target.files[0];
+        console.log(value);
+            console.log(value.name);
         const name = event.target.name;
         // Updating the input's state
         this.setState({
