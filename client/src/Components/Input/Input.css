@@ -1,36 +1,41 @@
 #Input {
     display: block;
-    margin-left: 500px;
-    margin-top: 80px;
+    position: absolute;
+    width: 200px;
 }
+
+
 .title {
+    position: absolute;
     width: 200px;
     height: 20px;
     border: 2px solid #3C4858;
     border-radius: 3px;
-    position: fixed;
-    margin-top: -50px;
 }
+
 .textbox {
-    display: block;
-    margin-top: -1px;
+    position: absolute;
+    top: 35px;
     width: 500px;
     height: 200px;
     resize: none;
     border: 2px solid #3C4858;
     border-radius: 3px;
-    position: fixed;
 }
 
 #postButton {
-    display:block;
     background-color: #3C4858;
     border-radius: 3px;
     color: white;
     padding: 10px 20px;
     text-align: center;
     font-size: 16px;
-    margin-top: 200px;
-    position: fixed;
     cursor: pointer;
+    top: 280px;
+    left: -1px;
+    height: 40px;
+    position: absolute;
 }
+
+
+
