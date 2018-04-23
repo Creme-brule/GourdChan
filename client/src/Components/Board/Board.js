@@ -58,6 +58,7 @@ class Board extends React.Component {
                 {
                     (this.state.threads) ? 
                     <div className="Threads">
+                    <p id="threads">Threads</p><hr/>
                     {this.state.threads.map(thread => (
                          <Link key={thread.id} to={'/t/'+thread.id}>
                             <p className="Title">{thread.title}</p>

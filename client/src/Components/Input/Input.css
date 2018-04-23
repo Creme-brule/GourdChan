@@ -33,6 +33,7 @@
     cursor: pointer;
     top: 240px;
     left: -3px;
+    height: 40px;
     position: absolute;
 }
 

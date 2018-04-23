@@ -65,10 +65,11 @@ class Thread extends React.Component {
                 {
                     (this.state.posts) ?
                     <div className="Posts">
+                    <p id="posts">Posts</p><hr id="postHr"/>
                     {this.state.posts.map(post => (
                          <div key={post.id}>
-                            <p className="Title">{post.title}</p>
-                            <p className="Text">{post.text}</p>
+                            <p className="Title" id="postTitle">{post.title}</p>
+                            <p className="Text" id="postText">{post.text}</p>
                         </div>
                     ))}
                     </div> :
