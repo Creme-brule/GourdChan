@@ -51,8 +51,13 @@ class SignupBar extends React.Component {
                         type="password"
                         placeholder="Password"
                     />
+<<<<<<< HEAD
                     <button id="loginBtn" onClick={this.createFormSubmit}>Submit</button>
                     <button id="signBtn" onClick={this.props.swap}>Sign in</button>
+=======
+                    <button onClick={this.createFormSubmit}>Submit</button>
+                    <button onClick={this.props.swap}>LOG IN</button>
+>>>>>>> develop
                     {/* <button onClick={this.props.signup(this.state.username,this.state.password)}>Submit</button> */}
                 
             </div>

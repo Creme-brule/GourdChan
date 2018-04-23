@@ -25,9 +25,14 @@ class LoginBar extends React.Component {
 
     render() {
         return (
+<<<<<<< HEAD
             <p id="login">Login
  
             <div className="loginBox">
+=======
+            <div className="userBox">
+                <p>Log In</p>
+>>>>>>> develop
                 
                     <input
                         value={this.state.username}
@@ -45,8 +50,13 @@ class LoginBar extends React.Component {
                         type="password"
                         placeholder="Password"
                     />
+<<<<<<< HEAD
                     <button id="loginBtn" onClick={this.loginFormSubmit}>Submit</button>
                     <button id="signBtn" onClick={this.props.swap}>Sign in</button>                
+=======
+                    <button onClick={this.loginFormSubmit}>Submit</button>
+                    <button onClick={this.props.swap}>SIGN UP</button>                
+>>>>>>> develop
             </div>
         </p>
         )

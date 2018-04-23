@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .loginBox {
     width: 420px;
     top: -20px;
@@ -33,3 +34,10 @@
     color: white;
     height: 20px;
 }
+=======
+.userBox  {
+    width: 100px;
+    margin-left: 85%;
+    margin-top: -80px;
+}
+>>>>>>> develop
