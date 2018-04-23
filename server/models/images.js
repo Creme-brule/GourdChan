@@ -9,5 +9,9 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }
   });
+  Images.associate = function(models) {
+    Images.belongsTo(models.thread);
+    Images.belongsTo(models.post);
+  }
   return Images;
 };

@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
         models.thread.hasMany(models.post, {as:"post"})
         models.thread.belongsTo(models.board,{as:"board"});
         models.thread.belongsTo(models.user,{as:"op"});
-        models.thread.belongsTo(models.image,{as:"picture"});
+        models.thread.hasOne(models.image,{as:"picture"});
     }
     return Threads;
  

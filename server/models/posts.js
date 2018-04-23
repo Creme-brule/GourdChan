@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
     Posts.associate = function(models) {
         models.post.belongsTo(models.thread,{as:"thread"});
         models.post.belongsTo(models.user,{as:"op"});
-        models.post.belongsTo(models.image,{as:"picture"});
+        models.post.hasOne(models.image,{as:"picture"});
     }
     return Posts;
  

@@ -30,8 +30,7 @@ class Board extends React.Component {
         });
     };
 
-    handlePostInput = event => {
-        event.preventDefault();
+    handlePostInput = () => {
         const body = {
             model: "thread",
             title: this.state.title,
