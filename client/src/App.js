@@ -123,8 +123,8 @@ class App extends Component {
   };
 
   render() {
-    const loginError = this.state.authError ? (<div><p>{this.state.authError}</p></div>):(<div></div>)
-    const signBar = this.state.signUp ? (<div>{loginError}<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} /></div>) : (<div>{loginError}<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} /></div>);
+    const loginError = this.state.authError ? (<div id="loginError"><p>{this.state.authError}</p></div>):(<div></div>)
+    const signBar = this.state.signUp ? (<div id="pwdError">{loginError}<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} /></div>) : (<div>{loginError}<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} /></div>);
     const loggedIn = this.state.loggedIn ? (<div className="userBox"><p>Logged in as: {this.state.username} </p>
       <button id="logoutBtn" onClick={this.logout}>LOGOUT</button>
     </div>) : (signBar)

@@ -55,3 +55,12 @@ body {
   left: 150px;
   position: absolute;
 }
+
+#loginError {
+  position: absolute;
+  left: 503px;
+  top: 52px;
+  color: red;
+  font-size: 12px;
+  font-style: italic;
+}
