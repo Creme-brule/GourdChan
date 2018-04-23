@@ -13,6 +13,9 @@ class ImageUpload extends React.Component {
     upload = (event) => {
         event.preventDefault();
         console.log(this.state.image);
+        if(!this.state.image){
+            return;
+        }
         imageApi.geturl({
             image: this.state.image,
             imageName: this.state.image.name
