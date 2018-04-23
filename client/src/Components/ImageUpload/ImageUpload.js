@@ -13,11 +13,16 @@ class ImageUpload extends React.Component {
     upload = (event) => {
         event.preventDefault();
         console.log(this.state.image);
-        imageApi.upload({
+        imageApi.geturl({
             image: this.state.image,
             imageName: this.state.image.name
         }).then(data => {
+            console.log("\n\nIMAGEUPLOAD:");
             console.log(data);
+            imageApi.upload(this.state.image, data).then(results => {
+                console.log("GOAL: ");
+                console.log(results)
+            });
         });
     }
 
