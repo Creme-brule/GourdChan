@@ -1,10 +1,15 @@
 import React from 'react';
 import "./Input.css";
 import imageApi from '../../Data/image-api';
+import organizationApi from '../../Data/organization-api';
 
 class Input extends React.Component {
     state = {
-        image: ""
+        image: "",
+        title: "",
+        text: "",
+        threadId: null,
+        postId: null
     }
     showImage = () => {
         console.log(this.state.image);
@@ -14,6 +19,12 @@ class Input extends React.Component {
         event.preventDefault();
         console.log(this.state.image);
         if(!this.state.image){
+            this.handlePostInput(null);
+            this.setState({
+                image: "",
+                title: "",
+                text: ""
+            });
             return;
         }
         imageApi.geturl({
@@ -34,14 +45,51 @@ class Input extends React.Component {
                 const i = longurl.indexOf("?");
                 const url = longurl.substring(0, i);
                 console.log(url);
-                this.props.submit();
+                const body = {
+                    url
+                }
+                organizationApi.upload(body).then((result)=> {
+                    console.log("upload result");
+                    console.log(result)
+                    this.handlePostInput(result.id);
+                    this.setState({
+                        image: "",
+                        title: "",
+                        text: ""
+                    });
+                });
+                
             });
         });
     }
 
-    handleInputChange = event => {
+    handlePostInput = (result) => {
+        const body = {
+            model: this.props.model,
+            title: this.state.title,
+            text: this.state.text,
+            boardId: this.props.boardId,
+            threadId: this.props.threadId,  
+            op: this.props.op,
+            imageId: result
+        }
+        console.log("click" + JSON.stringify(body));
+        organizationApi.create(body).then(()=>this.props.load());
+    };
+
+    handleFileChange = event => {
         // Getting the value and name of the input which triggered the change
         let value = event.target.files[0];
+        const name = event.target.name;
+        // Updating the input's state
+        this.setState({
+            [name]: value
+        });
+    };
+
+    handleInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const value = event.target.value;
         const name = event.target.name;
         // Updating the input's state
         this.setState({
@@ -53,9 +101,9 @@ class Input extends React.Component {
     render() {
         return (
             <form className="Input" id="Input">
-                <input id="imageUpload" className="upload" type="file" name="image" accept="image/*" onChange={this.handleInputChange} />
-                <input type="text" className="title" name="title" placeholder="Title" value={this.props.titleValue} onChange={this.props.change} required={this.props.required}/>
-                <textarea className="textbox" name="text" onChange={this.props.change} value={this.props.textValue} placeholder={"Post in " + this.props.board}required/>
+                <input id="imageUpload" className="upload" type="file" name="image" accept="image/*" onChange={this.handleFileChange} />
+                <input type="text" className="title" name="title" placeholder="Title" value={this.state.title} onChange={this.handleInputChange} required={this.props.required}/>
+                <textarea className="textbox" name="text" onChange={this.handleInputChange} value={this.state.text} placeholder={"Post in " + this.props.board} required/>
                 <button id="postButton" onClick={this.upload}> Post </button>
             </form>
         )

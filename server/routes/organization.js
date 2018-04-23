@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/", org.findAll);
 router.get("/:id/:model", org.findById);
 router.post("/", org.create);
-router.put("/:id", org.update);
+router.post("/upload", org.upload);
 router.delete("/:id", org.remove);
 
 // Export routes for server.js to use.

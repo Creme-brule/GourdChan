@@ -10,8 +10,8 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Images.associate = function(models) {
-    Images.belongsTo(models.thread);
-    Images.belongsTo(models.post);
+    Images.hasOne(models.thread,{as:"thread"});
+    Images.hasOne(models.post,{as:"post"});
   }
   return Images;
 };

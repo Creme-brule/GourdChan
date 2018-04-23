@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Board from './Components/Board';
 import SideBar from './Components/SideBar';
-import ImageUpload from './Components/ImageUpload';
 import LoginBar from './Components/LoginBar';
 import SignupBar from './Components/SignupBar';
 import Thread from './Components/Threads';
@@ -116,7 +115,6 @@ class App extends Component {
     return (
       <Router>  
         <div>
-          <ImageUpload />
           {loggedIn}
           <SideBar list={this.state.BoardList} click={this.locationClick} />
           <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
