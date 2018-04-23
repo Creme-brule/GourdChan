@@ -36,17 +36,18 @@ const authcontroller = {
         id: req.user.id,
         name: req.user.username
       }
+      console.log("\n\nloggedIN response\n");
+      console.log(response);
       res.json(response);
     } else {
       res.json(null);
     }
   },
-  shooby(req, res, next) {
-    res.json("Login Failed.");
+  userTaken(req, res, next) {
+    res.json("Username Taken.");
   },
-  dooby(req, res, next) {
-    console.log("doobie");
-    next();
+  loginError(req, res, next) {
+    res.json("Invalid login credentials");
   }
 };
 export { authcontroller as default };

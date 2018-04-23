@@ -3,10 +3,10 @@ import authController from "../controllers/authcontrollers.js";
 const router = express.Router();
 export default function (passport) {
 
-  router.get("/",authController.dooby);
-  router.get("/signup", authController.shooby);
+  // router.get("/");
+  router.get("/signup", authController.userTaken);
   router.get("/dashboard", authController.LoggedIn);
-  router.get("/signin", authController.shooby);
+  router.get("/signin", authController.loginError);
   router.post("/logout",authController.logout);
 
   // router.post(
@@ -20,6 +20,13 @@ export default function (passport) {
   //     });
   //   }
   // );
+
+  // router.post('/signup',(req,res)=> passport.authenticate('local-signup', (err,user,info)=>{
+  //   console.log(err);
+  //   console.log(user);
+  //   console.log(info);
+  //   res.redirect('/auth/dashboard');
+  // })(req,res))
 
   router.post('/signup', (req, res) => passport.authenticate('local-signup', { 
     successRedirect: '/auth/dashboard', 
