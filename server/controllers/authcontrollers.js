@@ -11,7 +11,9 @@ const authcontroller = {
   },
 
   logout(req, res) {
+    console.log("\n\nLOGOUT:");
     req.session.destroy(function(err) {
+      console.log("\n\nLOGGGGOOOOT");
       res.redirect("/");
     });
   },
