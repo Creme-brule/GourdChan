@@ -19,7 +19,12 @@ class ImageUpload extends React.Component {
         }).then(data => {
             console.log("\n\nIMAGEUPLOAD:");
             console.log(data);
-            imageApi.upload(this.state.image, data).then(results => {
+            const options = {
+                headers: {
+                  'Content-Type': data.type,
+                }
+              }
+            imageApi.upload(data.url,this.state.image,options).then(results => {
                 console.log("GOAL: ");
                 console.log(results)
                 console.log(results.config.url);

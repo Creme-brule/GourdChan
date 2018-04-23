@@ -1,11 +1,7 @@
 import axios from "axios";
-const options = {
-  headers: {
-    'Content-Type': "",
-  }
-}
+
 const imageApi = {
-  upload: (file, url) => axios.put(url, file, options)
+  upload: (url,file, options) => axios.put(url, file, options)
     .then(result => result).catch(err => {
       console.log(err);
       return err;
@@ -18,8 +14,11 @@ const imageApi = {
     const signedUrl = result.data;
     console.log("\n\nimage-api_geturl:");
     console.log(result);
-    options.headers["Content-Type"] = org.image.type;
-    return signedUrl;
+    const data = {
+      url: signedUrl,
+      type: org.image.type
+    }
+    return data;
   }),
   download: org => axios.get('/api/image/:id', org).then(results => results.data),
 };
