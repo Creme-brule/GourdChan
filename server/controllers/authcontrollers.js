@@ -17,7 +17,7 @@ const authcontroller = {
       console.log("\n\n\nsecond sess");
       console.log("\n\nbleh");
       console.log(req.session);
-      res.redirect("/");      
+      res.redirect("/");        
     });
     // req.session.destroy(err => {
     //   if (err) {
