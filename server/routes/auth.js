@@ -7,7 +7,7 @@ export default function (passport) {
   router.get("/signup", authController.shooby);
   router.get("/dashboard", authController.LoggedIn);
   router.get("/signin", authController.shooby);
-  router.get("/logout", authController.logout);
+  router.post("/logout",authController.logout);
 
   // router.post(
   //   "/signup",
