@@ -27,7 +27,6 @@ h1 {
         text-align: center;
 }
     
-
 .Title {
         font-weight: bold;
 }
@@ -36,9 +35,7 @@ h1 {
         margin-top: -15px;
         font-style: italic;
         font-size: 16px;
-}
-    
-    
+}    
 */
 
 .Thread {
@@ -48,7 +45,6 @@ h1 {
     left: 440px;
     top: 65px;
     color:  #3C4858;
-
     }
 
 .Parent {

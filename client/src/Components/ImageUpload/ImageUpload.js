@@ -53,13 +53,6 @@ class ImageUpload extends React.Component {
     render() {
         return (
             <div className="upload">
-<<<<<<< HEAD
-=======
-                <button onClick={this.showImage}    >SHOW</button>
-                <p>
-                    Upload
-                </p>
->>>>>>> develop
                 <form>
                     <input id="imageUpload" type="file" name="image" accept="image/*" onChange={this.handleInputChange} />
                     <button id="upload" onClick={this.upload}> Upload </button>
