@@ -22,6 +22,7 @@ class ImageUpload extends React.Component {
             imageApi.upload(this.state.image, data).then(results => {
                 console.log("GOAL: ");
                 console.log(results)
+                console.log(results.config.url);
             });
         });
     }
