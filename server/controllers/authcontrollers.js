@@ -44,7 +44,7 @@ const authcontroller = {
     }
   },
   userTaken(req, res, next) {
-    res.json("Username Taken.");
+    res.json("Username Taken");
   },
   loginError(req, res, next) {
     res.json("Invalid login credentials");
