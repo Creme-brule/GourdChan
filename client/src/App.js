@@ -31,16 +31,28 @@ class App extends Component {
     console.log(this.state.userId);
   }
 
+  logout = () => {
+    authApi.logout().then(result => result);
+    this.setState({
+      loggedIn: false,
+      username:"",
+      userId:""
+    })
+    sessionStorage.removeItem('userId');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('loggedIn');
+  }
+
   componentDidMount() {
     organizationApi.getAll().then(results => {
       console.log(results);
       const userId = sessionStorage.getItem("userId");
       const username = sessionStorage.getItem("username");
       let loggedIn = sessionStorage.getItem("loggedIn");
-      if(!loggedIn) {
+      if (!loggedIn) {
         loggedIn = false;
       }
-      console.log("get userId" + userId +"/" + loggedIn);
+      console.log("get userId" + userId + "/" + loggedIn);
       this.setState({
         username,
         loggedIn,
@@ -118,13 +130,19 @@ class App extends Component {
     const signBar = this.state.signUp ? (<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} />) : (<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} />);
     const loggedIn = this.state.loggedIn ? (<div className="userBox">Logged in as: {this.state.username}</div>) : (signBar)
     return (
-      <Router>  
+      <Router>
         <div>
+          <br />
+          <div>
+            <br />
+            <button onClick={this.logout}>LOGOUT</button>
+            <br />
+          </div>
           <ImageUpload />
           {loggedIn}
           <SideBar list={this.state.BoardList} click={this.locationClick} />
-          <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
-          <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props}/>}/>
+          <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props} />} />
+          <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props} />} />
         </div>
       </Router>
     );
