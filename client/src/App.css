@@ -33,3 +33,34 @@ body {
 
 }
 */
+
+.userBox {
+  display: block;
+  width: 300px;
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  left: 900px;
+  top: 0;
+  color:  #3C4858;
+}
+
+#logoutBtn {
+  margin: 2px;
+  background-color: #3C4858;
+  border-radius: 3px;
+  color: white;
+  height: 20px;
+  top: 10px;
+  left: 150px;
+  position: absolute;
+}
+
+#loginError {
+  position: absolute;
+  left: 503px;
+  top: 52px;
+  color: red;
+  font-size: 12px;
+  font-style: italic;
+}
