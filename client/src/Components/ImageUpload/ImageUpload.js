@@ -1,5 +1,7 @@
 import React from 'react';
 import imageApi from '../../Data/image-api';
+import "./ImageUpload.css";
+
 
 class ImageUpload extends React.Component {
 
@@ -35,9 +37,7 @@ class ImageUpload extends React.Component {
     <div className="upload">
         <button onClick={this.showImage}    >SHOW</button>
          
-        <p>
-          Upload
-        </p>
+        <p>Upload</p>
         <form>
             <input id="imageUpload" type="file" name="image" accept="image/*" onChange={this.handleInputChange}/>
             <button id="upload" onClick={this.upload}> UPLOAD </button>

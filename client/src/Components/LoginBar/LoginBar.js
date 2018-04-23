@@ -1,4 +1,5 @@
 import React from 'react';
+import "./LoginBar.css"
 
 class LoginBar extends React.Component {
 
@@ -24,12 +25,14 @@ class LoginBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="loginBox">
+
                 <p>Log In</p>
                 
                     <input
                         value={this.state.username}
                         name="username"
+                        id="username"
                         onChange={this.handleInputChange}
                         type="text"
                         placeholder="User Name"
@@ -37,6 +40,7 @@ class LoginBar extends React.Component {
                     <input
                         value={this.state.password}
                         name="password"
+                        id="password"
                         onChange={this.handleInputChange}
                         type="password"
                         placeholder="Password"

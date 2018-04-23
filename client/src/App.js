@@ -112,8 +112,6 @@ class App extends Component {
         <div>
           <ImageUpload />
           {loggedIn}
-          <button id="reg" onClick={this.signUpInstead}>SIGN IN/UP</button>
-          <button onClick={this.showID}> TEST ID </button>
           <SideBar list={this.state.BoardList} click={this.locationClick} />
           <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
           <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props}/>}/>

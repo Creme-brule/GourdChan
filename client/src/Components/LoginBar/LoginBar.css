@@ -1,0 +1,23 @@
+.loginBox {
+    width: 420px;
+    top: 0;
+    position:  absolute;
+    left: 750px;
+}
+
+p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#username {
+    margin: 2px;
+}
+
+#password {
+    margin: 2px;
+}
+
+button {
+    margin: 2px;
+}

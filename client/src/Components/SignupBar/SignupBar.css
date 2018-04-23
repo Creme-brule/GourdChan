@@ -1,6 +1,23 @@
-.userBox  {
-    width: 100px;
-    margin-left: 95%;
-    margin-top: -100px;
+.signBox {
+    width: 420px;
+    top: 0;
+    position:  absolute;
+    left: 750px;
 }
 
+p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#username {
+    margin: 2px;
+}
+
+#password {
+    margin: 2px;
+}
+
+button {
+    margin: 2px;
+}
