@@ -1,20 +1,15 @@
 .loginBox {
-    width: 420px;
-    top: -20px;
+    top: -25px;
     position: relative;
-    left: 40px;
+    left: 500px;
+    width: 450px;
 }
 
 #login {
-    display: block;
-    width: 50px;
     font-size: 14px;
-    font-weight: bold;
-    position: absolute;
-    left: 710px;
-    top: 0;
-    color:  #3C4858;
+    font-weight: bold; 
 }
+
 
 #username {
     margin: 2px;
