@@ -1,21 +1,21 @@
-body {
-    background-color: #EEEEEE;
+/*
+.Board {
     color: #3C4858;
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-weight: 300;
     line-height: 1.5em;
-}
-
-.Board {
-    font-size: 20px; 
-    
+    position: relative;
+    width: 500px;
+    margin-left: 120px;
+    margin-top: 50px;
 }
 
 h1 {
-   display: block;
-   text-align: center;
-   font-size: 24px;
+    position: relative;
+    text-align: center;
+    margin-left: 200px;
 }
+
 
 :root {
     --link-color: blue;
@@ -36,16 +36,25 @@ h1 {
 .Threads{
     display: block;
     z-index: 50;
-    margin-left: 300px;
     color: #3C4858;
     text-decoration: none;  
     color: black;
+    margin-top: 350px;
+    margin-left: 550px;
+    position: relative;
+    text-align: center;
 }
 
 .Threads a{
     font-size: 18px;
     text-decoration: none;
     color: black;
+}
+
+.Threads a:hover{
+    font-size: 18px;
+    text-decoration: none;
+    color: red;
 }
 
 .Title {
@@ -58,3 +67,56 @@ h1 {
     font-size: 16px;
 }
 
+
+*/
+
+.Board {
+    display: block;
+    position: absolute;
+    width: 500px;
+    left: 440px;
+    top: 65px;
+    color: #3C4858;
+}
+
+.Threads{
+    display: block;
+    width: 510px;
+    color: #3C4858;
+    text-decoration: none;  
+    color: black;
+    top: 520px;
+    position: absolute;
+}
+
+.Threads a{
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+.Threads a:hover{
+    font-size: 18px;
+    text-decoration: none;
+    color: red;
+}
+
+.Title {
+    font-weight: bold;
+}
+
+.Text {
+    margin-top: -15px;
+    font-style: italic;
+    font-size: 16px;
+}
+
+#threads {
+    display: block;
+    position: absolute;
+    color: #3C4858;
+    font-size: 30px;
+    font-weight: bold;
+    left: 0;
+    top: -80px;
+}
