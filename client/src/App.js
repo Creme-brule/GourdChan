@@ -20,7 +20,8 @@ class App extends Component {
     location: "",
     locationName: "",
     locationId: "",
-    signUp: false
+    signUp: false,
+    authError:""
   };
 
   signUpInstead = () => {
@@ -79,7 +80,12 @@ class App extends Component {
       password
     })
       .then((data) => {
+        console.log("login response");
         console.log(data);
+        if(data=="Invalid login credentials"){
+          this.setState({authError:data});
+          
+        }
         if (typeof data.id === "number") {
           this.userLoggedIn(data);
           console.log("login");
@@ -94,27 +100,17 @@ class App extends Component {
       password
     })
       .then((data) => {
+        console.log("create response");
         console.log(data);
+        if(data=="Username Taken"){
+          this.setState({authError:data});
+        }
         if (typeof data.id === "number") {
           this.userLoggedIn(data);
-          console.log("login");
+          console.log("create");
           console.log(data);
         }
       });
-  };
-
-  handleFileChange = event => {
-    // Getting the value and name of the input which triggered the change
-    let value = event.target.value;
-    const name = event.target.name;
-
-    if (name === "password") {
-      value = value.substring(0, 64);
-    }
-    // Updating the input's state
-    this.setState({
-      [name]: value
-    });
   };
 
   locationClick = (loc, name, id) => {
@@ -127,7 +123,8 @@ class App extends Component {
   };
 
   render() {
-    const signBar = this.state.signUp ? (<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} />) : (<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} />);
+    const loginError = this.state.authError ? (<div><p>{this.state.authError}</p></div>):(<div></div>)
+    const signBar = this.state.signUp ? (<div>{loginError}<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} /></div>) : (<div>{loginError}<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} /></div>);
     const loggedIn = this.state.loggedIn ? (<div className="userBox"><p>Logged in as: {this.state.username} </p>
       <button id="logoutBtn" onClick={this.logout}>LOGOUT</button>
     </div>) : (signBar)
