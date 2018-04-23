@@ -13,6 +13,9 @@ class ImageUpload extends React.Component {
     upload = (event) => {
         event.preventDefault();
         console.log(this.state.image);
+        if(!this.state.image){
+            return;
+        }
         imageApi.geturl({
             image: this.state.image,
             imageName: this.state.image.name
@@ -21,15 +24,15 @@ class ImageUpload extends React.Component {
             console.log(data);
             const options = {
                 headers: {
-                  'Content-Type': data.type,
+                    'Content-Type': data.type,
                 }
-              }
-            imageApi.upload(data.url,this.state.image,options).then(results => {
+            }
+            imageApi.upload(data.url, this.state.image, options).then(results => {
                 console.log("GOAL: ");
                 console.log(results)
                 const longurl = results.config.url;
                 const i = longurl.indexOf("?");
-                const url = longurl.substring(0,i);
+                const url = longurl.substring(0, i);
                 console.log(url);
             });
         });
@@ -38,8 +41,6 @@ class ImageUpload extends React.Component {
     handleInputChange = event => {
         // Getting the value and name of the input which triggered the change
         let value = event.target.files[0];
-        console.log(value);
-        console.log(value.name);
         const name = event.target.name;
         // Updating the input's state
         this.setState({
@@ -51,10 +52,9 @@ class ImageUpload extends React.Component {
         return (
             <div className="upload">
                 <button onClick={this.showImage}    >SHOW</button>
-
                 <p>
                     Upload
-        </p>
+                </p>
                 <form>
                     <input id="imageUpload" type="file" name="image" accept="image/*" onChange={this.handleInputChange} />
                     <button id="upload" onClick={this.upload}> UPLOAD </button>

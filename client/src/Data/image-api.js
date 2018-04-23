@@ -2,10 +2,7 @@ import axios from "axios";
 
 const imageApi = {
   upload: (url,file, options) => axios.put(url, file, options)
-    .then(result => result).catch(err => {
-      console.log(err);
-      return err;
-    })
+    .then(result => result).catch(err => err)
   ,
   geturl: org => axios.post('/api/image/upload/url', {
     filename: org.image.name,
