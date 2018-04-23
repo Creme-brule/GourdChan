@@ -27,10 +27,6 @@ class App extends Component {
     this.setState({ signUp: !this.state.signUp });
   }
 
-  showID = () => {
-    console.log(this.state.userId);
-  }
-
   componentDidMount() {
     organizationApi.getAll().then(results => {
       console.log(results);
