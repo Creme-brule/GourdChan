@@ -46,7 +46,7 @@ class LoginBar extends React.Component {
                         placeholder="Password"
                     />
                     <button id="loginBtn" onClick={this.loginFormSubmit}>Submit</button>
-                    <button id="signBtn" onClick={this.props.swap}>Sign in</button>                
+                    <button id="signBtn" onClick={this.props.swap}>Sign Up</button>                
             </div>
         </p>
         )

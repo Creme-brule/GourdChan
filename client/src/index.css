@@ -1,7 +1,8 @@
 body, html {
-  max-width: 100%;
+  width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   font-family: 'Cabin', sans-serif;
-  padding-bottom: 90px;
+  padding-bottom: auto;
+  overflow: auto;
 }

@@ -129,7 +129,7 @@ class App extends Component {
   render() {
     const signBar = this.state.signUp ? (<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} />) : (<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} />);
     const loggedIn = this.state.loggedIn ? (<div className="userBox"><p>Logged in as: {this.state.username} </p>
-      <button onClick={this.logout}>LOGOUT</button>
+      <button id="logoutBtn" onClick={this.logout}>LOGOUT</button>
     </div>) : (signBar)
     return (
       <Router>
