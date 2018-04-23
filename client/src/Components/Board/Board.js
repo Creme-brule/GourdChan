@@ -23,7 +23,9 @@ class Board extends React.Component {
             console.log(response.thread);
             this.setState({
                 Id: response.id,
-                threads: response.thread
+                threads: response.thread,
+                title: "",
+                text: ""
             });
         });
     };
@@ -54,7 +56,7 @@ class Board extends React.Component {
         return (
             <div className="Board">
                 <h1>{this.props.match.params.boardName}</h1>
-                <Input board={this.props.match.params.boardName} required={true} change={this.handleInputChange} submit={this.handlePostInput} />
+                <Input board={this.props.match.params.boardName} required={true} titleValue={this.state.title} textValue={this.state.text} change={this.handleInputChange} submit={this.handlePostInput} />
                 {
                     (this.state.threads) ? 
                     <div className="Threads">

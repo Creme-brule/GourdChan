@@ -18,13 +18,17 @@ const authcontroller = {
 
   LoggedIn(req, res, next) {
     if (req.isAuthenticated()) {
-      res.json(req.user.id);
+      const response = {
+        id: req.user.id,
+        name: req.user.username
+      }
+      res.json(response);
     } else {
       res.json(null);
     }
   },
   shooby(req,res,next) {
-    res.json("Failed to log in.");
+    res.json("Login Failed.");
   },
   dooby(req,res,next) {
     res.json("loowah");
