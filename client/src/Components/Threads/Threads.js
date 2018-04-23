@@ -22,7 +22,9 @@ class Thread extends React.Component {
             console.log(response);
             this.setState({
                 parent: response,
-                posts: response.post
+                posts: response.post,
+                title: "",
+                text: ""
             });
         });
     };
@@ -53,7 +55,7 @@ class Thread extends React.Component {
         return (
             <div className="Thread">
                 <h1>{this.props.match.params.threadId}</h1>
-                <Input board="thread" required={false} change={this.handleInputChange} submit={this.handlePostInput} />
+                <Input board="thread" required={false} change={this.handleInputChange} titleValue={this.state.title} textValue={this.state.text} submit={this.handlePostInput} />
                 {
                     (this.state.parent) ?
                     <div className="Parent">

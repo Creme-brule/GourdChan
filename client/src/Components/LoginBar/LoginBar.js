@@ -24,7 +24,7 @@ class LoginBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="userBox">
                 <p>Log In</p>
                 
                     <input
@@ -42,7 +42,7 @@ class LoginBar extends React.Component {
                         placeholder="Password"
                     />
                     <button onClick={this.loginFormSubmit}>Submit</button>
-                    <button onClick={this.props.swap}>SIGN IN/UP</button>                
+                    <button onClick={this.props.swap}>SIGN UP</button>                
             </div>
         )
     }

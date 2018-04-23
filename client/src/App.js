@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Board from './Components/Board';
-//import Posts from './Components/Posts';
 import SideBar from './Components/SideBar';
 import ImageUpload from './Components/ImageUpload';
 import LoginBar from './Components/LoginBar';
@@ -16,6 +15,7 @@ class App extends Component {
     board: "gourdlife",
     loggedIn: false,
     userId: "",
+    username: "",
     BoardList: [],
     location: "",
     locationName: "",
@@ -35,12 +35,14 @@ class App extends Component {
     organizationApi.getAll().then(results => {
       console.log(results);
       const userId = sessionStorage.getItem("userId");
+      const username = sessionStorage.getItem("username");
       let loggedIn = sessionStorage.getItem("loggedIn");
       if(!loggedIn) {
         loggedIn = false;
       }
       console.log("get userId" + userId +"/" + loggedIn);
       this.setState({
+        username,
         loggedIn,
         userId,
         BoardList: results
@@ -48,11 +50,13 @@ class App extends Component {
     });
   };
 
-  userLoggedIn = (userId) => {
-    sessionStorage.setItem("userId", userId);
+  userLoggedIn = (data) => {
+    sessionStorage.setItem("userId", data.id);
+    sessionStorage.setItem("username", data.name)
     sessionStorage.setItem("loggedIn", true);
     this.setState({
-      userId,
+      username: data.name,
+      userId: data.id,
       loggedIn: true
     })
   }
@@ -63,8 +67,12 @@ class App extends Component {
       password
     })
       .then((data) => {
-        this.userLoggedIn(data);
-        console.log("user id:" + data);
+        console.log(data);
+        if (typeof data.id === "number") {
+          this.userLoggedIn(data);
+          console.log("login");
+          console.log(data);
+        }
       });
   };
 
@@ -74,9 +82,11 @@ class App extends Component {
       password
     })
       .then((data) => {
-        if (data) {
+        console.log(data);
+        if (typeof data.id === "number") {
           this.userLoggedIn(data);
-          console.log("user id:" + data);
+          console.log("login");
+          console.log(data);
         }
       });
   };
@@ -106,14 +116,12 @@ class App extends Component {
 
   render() {
     const signBar = this.state.signUp ? (<LoginBar login={this.loginAccount} swap={this.signUpInstead} test={this.showID} />) : (<SignupBar signup={this.createAccount} swap={this.signUpInstead} test={this.showID} />);
-    const loggedIn = this.state.loggedIn ? (<div></div>) : (signBar)
+    const loggedIn = this.state.loggedIn ? (<div className="userBox">Logged in as: {this.state.username}</div>) : (signBar)
     return (
       <Router>  
         <div>
           <ImageUpload />
           {loggedIn}
-          <button id="reg" onClick={this.signUpInstead}>SIGN IN/UP</button>
-          <button onClick={this.showID}> TEST ID </button>
           <SideBar list={this.state.BoardList} click={this.locationClick} />
           <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props}/>} />
           <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props}/>}/>
