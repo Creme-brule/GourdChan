@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Board from './Components/Board';
 import SideBar from './Components/SideBar';
-import ImageUpload from './Components/ImageUpload';
 import LoginBar from './Components/LoginBar';
 import SignupBar from './Components/SignupBar';
 import Thread from './Components/Threads';
@@ -27,10 +26,6 @@ class App extends Component {
   signUpInstead = () => {
     this.setState({ signUp: !this.state.signUp,
     authError:"" });
-  }
-
-  showID = () => {
-    console.log(this.state.userId);
   }
 
   logout = () => {
@@ -81,7 +76,7 @@ class App extends Component {
       password
     })
       .then((data) => {
-        if(data=="Invalid login credentials"){
+        if(data==="Invalid login credentials"){
           this.setState({authError:data});
         }
         if (typeof data.id === "number") {
@@ -98,7 +93,7 @@ class App extends Component {
       password
     })
       .then((data) => {
-        if(data=="Username Taken"){
+        if(data==="Username Taken"){
           this.setState({authError:data});
         }
         if (typeof data.id === "number") {
@@ -126,8 +121,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <br />
-          <ImageUpload />
           {loggedIn}
           <SideBar list={this.state.BoardList} click={this.locationClick} />
           <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props} />} />
