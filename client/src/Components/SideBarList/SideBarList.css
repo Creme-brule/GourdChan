@@ -1,0 +1,28 @@
+
+.board {
+    margin-top: 15px;
+}
+
+.board a {
+    margin-right: 10px;
+    text-decoration: none;  
+    color: black;
+}
+
+:root {
+    --link-color: blue;
+    --hover-color: white;
+    --underline-color: var(--link-color);
+}
+
+
+.board a:hover {
+    color: var(--hover-color);
+    border-bottom-color: var(--hover-color);
+}
+
+.board a.selected, a.selected:link, a.selected:active {
+    border-bottom: 3px solid white;
+
+}
+

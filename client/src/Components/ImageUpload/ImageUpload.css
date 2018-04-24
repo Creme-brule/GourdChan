@@ -1,0 +1,21 @@
+.upload {
+    margin: 10px;
+    display: block;
+    width: 500px;
+    left: 430px;
+    top: 100px;
+    position: absolute;
+}
+
+#upload {
+    display: block;
+    width: 70px;
+    position: absolute;
+    top: 0;
+    left: 180px;
+}
+
+#imageUpload {
+    display: block;
+    width: 300px;
+}

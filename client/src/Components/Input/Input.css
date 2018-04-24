@@ -1,0 +1,53 @@
+#Input {
+    display: block;
+    position: absolute;
+    width: 200px;
+}
+
+
+.title {
+    position: absolute;
+    width: 200px;
+    height: 20px;
+    border: 2px solid #3C4858;
+    border-radius: 3px;
+}
+
+.textbox {
+    position: absolute;
+    top: 35px;
+    width: 500px;
+    height: 200px;
+    resize: none;
+    border: 2px solid #3C4858;
+    border-radius: 3px;
+}
+
+#postButton {
+    background-color: #3C4858;
+    border-radius: 3px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    top: 280px;
+    left: -1px;
+    height: 40px;
+    position: absolute;
+}
+
+.upload {
+    display: block;
+    width: 200px;
+    top: 250px;
+    position: absolute;
+}
+
+
+img {
+    display: block;
+    width: 200px;   
+    height: 200px;
+    clear: both;
+}

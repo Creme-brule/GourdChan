@@ -1,0 +1,88 @@
+/*
+.Thread {
+    display: block;
+    color: #3C4858;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    width: 500px;
+    margin-left: 120px;
+    margin-top: 50px;
+}
+
+h1 {
+    text-align: center;
+    left: 45%;
+}
+
+.Posts {
+        width: 300px;
+        display: block;
+        z-index: 50;
+        color: #3C4858;
+        text-decoration: none;  
+        color: black;
+        margin-top: 220px;
+        margin-left: 420px;
+        text-align: center;
+}
+    
+.Title {
+        font-weight: bold;
+}
+    
+.Text {
+        margin-top: -15px;
+        font-style: italic;
+        font-size: 16px;
+}    
+*/
+
+.Thread {
+    display: block;
+    position: absolute;
+    width: 500px;
+    left: 440px;
+    top: 65px;
+    color:  #3C4858;
+    }
+
+.Parent {
+    display: block;
+    width: 510px;
+    color: #3C4858;
+    text-decoration: none;  
+    color: black;
+    position: absolute;
+    top: 580px;
+    margin-top: -10px;    
+}
+
+.Posts {
+    display: block;
+    width: 510px;
+    color: #3C4858;
+    text-decoration: none;  
+    color: black;
+    position: relative;
+    top: 850px;
+    margin: 0;
+    padding-bottom: 80px;
+}
+
+
+#posts {
+    display: block;
+    position: absolute;
+    color: #3C4858;
+    font-size: 30px;
+    font-weight: bold;
+    left: 0;
+    top: -450px;   
+}
+
+#postTitle, #postText {
+    display: block;
+    position: relataive;
+    top: 50px;
+}

@@ -1,0 +1,36 @@
+.SideBar {
+    height: 100%;
+    width: 200px;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    position: fixed;
+    background-color: lightgrey;
+    color:  #3C4858;
+
+}
+
+.category {
+    margin-top: 50px;
+    font-size: large;
+    font-weight: bold;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    display: block;
+    margin-left: 39px;
+    margin-top: 5px;
+}
+
+h3 {
+    display: block;
+    margin-left: 39px;
+    margin-top: 20px;
+    font-size: 18px;
+} 

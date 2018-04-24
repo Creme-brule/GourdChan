@@ -1,0 +1,122 @@
+/*
+.Board {
+    color: #3C4858;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5em;
+    position: relative;
+    width: 500px;
+    margin-left: 120px;
+    margin-top: 50px;
+}
+
+h1 {
+    position: relative;
+    text-align: center;
+    margin-left: 200px;
+}
+
+
+:root {
+    --link-color: blue;
+    --hover-color: red;
+    --underline-color: var(--link-color);
+}
+
+.Threads a:hover {
+    color: var(--hover-color);
+    border-bottom-color: var(--hover-color);
+}
+
+.Threads a.selected, a.selected:link, a.selected:active {
+    border-bottom: 3px solid red;
+
+}
+
+.Threads{
+    display: block;
+    z-index: 50;
+    color: #3C4858;
+    text-decoration: none;  
+    color: black;
+    margin-top: 350px;
+    margin-left: 550px;
+    position: relative;
+    text-align: center;
+}
+
+.Threads a{
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+.Threads a:hover{
+    font-size: 18px;
+    text-decoration: none;
+    color: red;
+}
+
+.Title {
+    font-weight: bold;
+}
+
+.Text {
+    margin-top: -15px;
+    font-style: italic;
+    font-size: 16px;
+}
+
+
+*/
+
+.Board {
+    display: block;
+    position: absolute;
+    width: 500px;
+    left: 440px;
+    top: 65px;
+    color: #3C4858;
+}
+
+.Threads{
+    display: block;
+    width: 510px;
+    color: #3C4858;
+    text-decoration: none;  
+    color: black;
+    top: 520px;
+    position: absolute;
+}
+
+.Threads a{
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+}
+
+.Threads a:hover{
+    font-size: 18px;
+    text-decoration: none;
+    color: red;
+}
+
+.Title {
+    font-weight: bold;
+}
+
+.Text {
+    margin-top: -15px;
+    font-style: italic;
+    font-size: 16px;
+}
+
+#threads {
+    display: block;
+    position: absolute;
+    color: #3C4858;
+    font-size: 30px;
+    font-weight: bold;
+    left: 0;
+    top: -80px;
+}
