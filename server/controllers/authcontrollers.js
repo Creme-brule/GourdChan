@@ -11,23 +11,9 @@ const authcontroller = {
   },
 
   logout(req, res) {
-    console.log("\n\n\nfirst sess");
-    console.log(req.session);
     req.session.destroy(function (err) {
-      console.log("\n\n\nsecond sess");
-      console.log("\n\nbleh");
-      console.log(req.session);
       res.redirect("/");        
     });
-    // req.session.destroy(err => {
-    //   if (err) {
-    //     console.log(err);
-    //   } else {
-    //     console.log("\n\nSECOND REQ\n\n");
-    //     console.log(req);
-    //     res.redirect("/");
-    //   }
-    // });
   },
 
   LoggedIn(req, res, next) {
