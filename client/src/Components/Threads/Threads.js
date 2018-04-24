@@ -40,8 +40,11 @@ class Thread extends React.Component {
                 {
                     (this.state.parent) ?
                         <div className="Parent">
+                            {(this.state.parent.image === null) ? null : <img src={this.state.parent.image.image_url} alt={this.state.parent.image.id} />}
+                            <p className="Id">{this.state.parent.id}</p>
                             <p className="Title">{this.state.parent.title}</p>
                             <p className="Text">{this.state.parent.text}</p>
+                            <p className="User">{this.state.parent.op.username}</p>
                         </div> :
                         <h3>Post does not exist</h3>
                 }
@@ -51,8 +54,11 @@ class Thread extends React.Component {
                             <p id="posts">Posts</p><hr id="postHr" />
                             {this.state.posts.map(post => (
                                 <div key={post.id}>
-                                    <p className="Title" id="postTitle">{post.title}</p>
-                                    <p className="Text" id="postText">{post.text}</p>
+                                    {(post.image === null) ? null : <img src={post.image.image_url} alt={post.image.id} />}
+                                        <p className="ThreadId">{post.id}</p>
+                                        <p className="Title">{post.title}</p>
+                                        <p className="Text">{post.text}</p>
+                                        <p className="User">{post.op.username}</p>
                                 </div>
                             ))}
                         </div> :
