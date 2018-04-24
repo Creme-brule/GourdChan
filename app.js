@@ -1,6 +1,6 @@
 var PORT = process.env.PORT || 3001; // Sets an initial port. We'll use this later in our listener
 // ensure environment variables are loaded
-import boardList from './database/boardlist.json';
+import boardList from './config/boardlist.json';
 import App from './server'
 import AWS from "aws-sdk";
 // Requiring our models for syncing
