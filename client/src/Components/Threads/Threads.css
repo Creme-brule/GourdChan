@@ -54,7 +54,7 @@ h1 {
     text-decoration: none;  
     color: black;
     position: absolute;
-    top: 540px;
+    top: 580px;
     margin-top: -10px;    
 }
 
@@ -64,8 +64,8 @@ h1 {
     color: #3C4858;
     text-decoration: none;  
     color: black;
-    position: absolute;
-    top: 520px;
+    position: relative;
+    top: 850px;
     margin: 0;
     padding-bottom: 80px;
 }
@@ -78,11 +78,11 @@ h1 {
     font-size: 30px;
     font-weight: bold;
     left: 0;
-    top: -80px;   
+    top: -450px;   
 }
 
 #postTitle, #postText {
     display: block;
-    position: relative;
+    position: relataive;
     top: 50px;
 }
