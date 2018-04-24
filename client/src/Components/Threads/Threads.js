@@ -51,7 +51,7 @@ class Thread extends React.Component {
                 {
                     (this.state.posts) ?
                         <div className="Posts">
-                            <p id="posts">Posts</p><hr id="postHr" />
+                            <p id="posts">Posts</p>
                             {this.state.posts.map(post => (
                                 <div key={post.id}>
                                     {(post.image === null) ? null : <img src={post.image.image_url} alt={post.image.id} />}
