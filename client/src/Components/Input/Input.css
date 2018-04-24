@@ -46,7 +46,7 @@
 
 
 img {
-    display: inline-block;
+    display: block;
     width: 510px;   
     height: 200px;
 }
