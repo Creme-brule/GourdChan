@@ -7,9 +7,7 @@ import "./Board.css";
 class Board extends React.Component {
     state = {
         Id:null,
-        threads: [],
-        title: "",
-        text: ""
+        threads: []
     }
     componentDidMount() {
         console.log("Boardmounted" + this.props.match.params.boardName);
@@ -23,32 +21,8 @@ class Board extends React.Component {
             console.log(response.thread);
             this.setState({
                 Id: response.id,
-                threads: response.thread,
-                title: "",
-                text: ""
+                threads: response.thread
             });
-        });
-    };
-
-    handlePostInput = event => {
-        event.preventDefault();
-        const body = {
-            model: "thread",
-            title: this.state.title,
-            text: this.state.text,
-            boardId: this.state.Id,
-            threadId: null,
-            op: this.props.userId
-        }
-        console.log("click" + JSON.stringify(body));
-        organizationApi.create(body).then(()=>this.loadContent());
-    };
-
-    handleInputChange = event => {
-        let value = event.target.value;
-        const name = event.target.name;
-        this.setState({
-            [name]: value
         });
     };
 
@@ -56,7 +30,7 @@ class Board extends React.Component {
         return (
             <div className="Board">
                 <h1>{this.props.match.params.boardName}</h1>
-                <Input board={this.props.match.params.boardName} required={true} titleValue={this.state.title} textValue={this.state.text} change={this.handleInputChange} submit={this.handlePostInput} />
+                <Input board={this.props.match.params.boardName} model={"thread"} boardId={this.state.Id} threadId={null} required={true} load={this.loadContent} op={this.props.userId} />
                 {
                     (this.state.threads) ? 
                     <div className="Threads">
