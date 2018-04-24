@@ -1,9 +1,9 @@
 require('./env');
 module.exports = {
   //depending on where deployed, these could change.
-  "username": process.env.DB_USERNAME,
-  "password": process.env.DB_PASSWORD,
-  "database": process.env.DB_SCHEMA,
-  "host": process.env.DB_HOST,
-  "dialect": process.env.DB_DIALECT
+  "username": "f2q62ufso6mhn4pv",
+  "password": "d7r1y71mc9dx3ipp",
+  "database": "bb2u4mk3t5jscxkx",
+  "host": "op2hpcwcbxb1t4z9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+  "dialect": "mysql"
 }
