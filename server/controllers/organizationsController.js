@@ -47,20 +47,18 @@ const controller = {
         text: req.body.text,
         boardId: req.body.boardId,
         threadId: req.body.threadId,
-        opId: req.body.op
+        opId: req.body.op,
+        imageId: req.body.imageId
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  update: function(req, res) {
-    db.Organization.update({
-        name: req.body.name,
-        description: req.body.description
-      }, {
-        where: {
-          id: req.params.id,
-          inactive: false
-        }
+  upload: function(req, res) {
+    console.log(req.body);
+    db.image.create({
+        image_url: req.body.url,
+        threadId: req.body.threadId,
+        postId: req.body.postId
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
