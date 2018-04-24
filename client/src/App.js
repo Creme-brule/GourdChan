@@ -57,6 +57,7 @@ class App extends Component {
         BoardList: results
       });
     });
+    
   };
 
   userLoggedIn = (data) => {
