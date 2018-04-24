@@ -76,7 +76,7 @@
     "watch-client": "node scripts/start.js",
     "watch": "concurrently \"yarn watch-client\" \"yarn watch-server\"",
     "build-client": "node scripts/build.js",
-    "build-server": "babel -d ./build/config ./config && babel -d ./build/server ./server && babel -d ./build ./app.js",
+    "build-server": "babel -d ./build/config ./config && babel -d ./build/server ./server && babel -d ./build ./app.js && babel -d ./build/database ./database",
     "build": "yarn build-client && yarn build-server",
     "dev-build": "cross-env NODE_ENV=development yarn build",
     "prod-build": "cross-env NODE_ENV=production yarn build",
