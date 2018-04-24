@@ -59,7 +59,7 @@ body {
 #loginError {
   position: absolute;
   left: 503px;
-  top: 52px;
+  top: 42px;
   color: red;
   font-size: 12px;
   font-style: italic;
