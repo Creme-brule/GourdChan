@@ -76,7 +76,7 @@ class App extends Component {
       password
     })
       .then((data) => {
-        if(data=="Invalid login credentials"){
+        if(data==="Invalid login credentials"){
           this.setState({authError:data});
         }
         if (typeof data.id === "number") {
@@ -93,7 +93,7 @@ class App extends Component {
       password
     })
       .then((data) => {
-        if(data=="Username Taken"){
+        if(data==="Username Taken"){
           this.setState({authError:data});
         }
         if (typeof data.id === "number") {
