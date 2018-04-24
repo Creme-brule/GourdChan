@@ -43,3 +43,10 @@
     top: 250px;
     position: absolute;
 }
+
+
+img {
+    display: inline-block;
+    width: 510px;   
+    height: 200px;
+}
