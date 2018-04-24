@@ -37,8 +37,11 @@ class Board extends React.Component {
                     <p id="threads">Threads</p><hr/>
                     {this.state.threads.map(thread => (
                          <Link key={thread.id} to={'/t/'+thread.id}>
+                            {(thread.image === null) ? null : <img src={thread.image.image_url} alt={thread.image.id}/>}
+                            <p className="ThreadId">{thread.id}</p>
                             <p className="Title">{thread.title}</p>
                             <p className="Text">{thread.text}</p>
+                            <p className="User">{thread.op.username}</p>
                         </Link>
                     ))}
                     </div>:
