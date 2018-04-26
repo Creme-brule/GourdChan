@@ -101,10 +101,10 @@ class Input extends React.Component {
     render() {
         return (
             <form className="Input" id="Input">
-                <input id="imageUpload" className="upload" type="file" name="image" accept="image/*" onChange={this.handleFileChange} />
-                <input type="text" className="title" name="title" placeholder="Title" value={this.state.title} onChange={this.handleInputChange} required={this.props.required}/>
-                <textarea className="textbox" name="text" onChange={this.handleInputChange} value={this.state.text} placeholder={"Post in " + this.props.board} required/>
-                <button id="postButton" onClick={this.upload}> Post </button>
+                <input id="imageUpload" className="upload" type="file" name="image" accept="image/*" onChange={this.handleFileChange} disabled={!this.props.login} />
+                <input type="text" className="title" name="title" placeholder="Title" value={this.state.title} onChange={this.handleInputChange} required={this.props.required} disabled={!this.props.login}/>
+                <textarea className="textbox" name="text" onChange={this.handleInputChange} value={this.state.text} placeholder={(this.props.login) ? `Post in ${this.props.board}.` : "You must be logged in to post."} required disabled={!this.props.login}/>
+                <button id="postButton" onClick={this.upload} disabled={!this.props.login}> Post </button>
             </form>
         )
         

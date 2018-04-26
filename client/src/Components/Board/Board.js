@@ -35,7 +35,7 @@ class Board extends React.Component {
         return (
             <div className="Board">
                 <h1>{this.props.match.params.boardName}</h1>
-                <Input board={this.props.match.params.boardName} model={"thread"} boardId={this.state.Id} threadId={null} required={true} load={this.loadContent} op={this.props.userId} />
+                <Input board={this.props.match.params.boardName} model={"thread"} boardId={this.state.Id} threadId={null} required={true} load={this.loadContent} op={this.props.userId} login={this.props.login} />
                 {
                     (this.state.threads) ?  
                         <div className="Threads">

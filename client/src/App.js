@@ -124,8 +124,8 @@ class App extends Component {
         <div>
           {loggedIn}
           <SideBar list={this.state.BoardList} click={this.locationClick} />
-          <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} {...props} />} />
-          <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} {...props} />} />
+          <Route exact path="/b/:boardName" render={(props) => <Board key={this.state.locationId} list={this.state.BoardList} location={this.state.location} locId={this.state.locationId} userId={this.state.userId} login={this.state.loggedIn} {...props} />} />
+          <Route exact path="/t/:threadId" render={(props) => <Thread userId={this.state.userId} login={this.state.loggedIn} {...props} />} />
         </div>
       </Router>
     );
