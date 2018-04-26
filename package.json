@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "server/index.js",
   "private": true,
-  "proxy": "127.0.0.1:3001",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "aws-sdk": "^2.226.1",
