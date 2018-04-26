@@ -36,7 +36,7 @@ class Thread extends React.Component {
         return (
             <div className="Thread">
                 <h1>{this.props.match.params.threadId}</h1>
-                <Input board="thread" model={"post"} required={false} boardId={null} threadId={this.state.Id} load={this.loadContent} op={this.props.userId} />
+                <Input board="thread" model={"post"} required={false} boardId={null} threadId={this.state.Id} load={this.loadContent} op={this.props.userId} login={this.props.login} />
                 {
                     (this.state.parent) ?
                         <div className="Parent">
