@@ -1,6 +1,9 @@
-# Instructions:
+# GourdChan
+GourdChan is an imageboard powered by React.js and Sequelize. The project was created for a web development class assignment; the naming was inspired by the popular japanese imageboard 2chan and our class assigned team name "Gourd". Users can browse the board without having to login but must create a free account in order to post or reply on the board. A sort of pseudonimity is instilled in hopes of encouraging civil and responsible online speech.
 
-## To run locally:
+## Instructions:
+
+### To run locally:
 * create a .env.local file in the root directory similar to below, but with your database info:
 ```
 DB_HOST=127.0.0.1
